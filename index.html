@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KÙKÙÉ — Bougies artisanales dans des coques de coco | Grand-Bassam</title>
+    <meta name="description" content="KÙKÙÉ crée des bougies parfumées coulées à la main dans des coques de coco recyclées à Grand-Bassam. Solutions professionnelles pour hôtels, restaurants, spas et concept stores.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'coco': {
+                            50: '#F8F2EC',
+                            100: '#F2E6DC',
+                            200: '#EAD8CA',
+                            300: '#C9B9AA',
+                            400: '#A18C7B',
+                            500: '#4A2C21',
+                            600: '#3D241A',
+                            700: '#351F17',
+                            800: '#241510',
+                            900: '#1A0F0A',
+                        },
+                        'sand': '#EAD8CA',
+                    },
+                    fontFamily: {
+                        'serif': ['"Cormorant Garamond"', 'Georgia', 'serif'],
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        'organic': '1.5rem',
+                        'organic-lg': '2.5rem',
+                        'organic-xl': '3rem',
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+        .font-sans { font-family: 'Inter', sans-serif; }
+
+        /* =============================================
+           FONDS — #4A2C21 · #F2E6DC · #A18C7B
+           ============================================= */
+        body {
+            background-color: #F2E6DC;
+            background-image:
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E"),
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(74,44,33,0.006) 2px, rgba(74,44,33,0.006) 3px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(74,44,33,0.006) 2px, rgba(74,44,33,0.006) 3px),
+                radial-gradient(ellipse 80% 50% at 75% 10%, rgba(242,230,220,0.6) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 60% at 15% 85%, rgba(234,216,202,0.3) 0%, transparent 60%),
+                radial-gradient(ellipse 40% 40% at 90% 60%, rgba(161,140,123,0.03) 0%, transparent 60%);
+            background-attachment: fixed;
+            background-size: 256px 256px, 3px 3px, 3px 3px, 100% 100%, 100% 100%, 100% 100%;
+        }
+
+        .bg-hero {
+            background:
+                radial-gradient(ellipse 90% 70% at 80% 15%, rgba(242,230,220,0.7) 0%, transparent 50%),
+                radial-gradient(ellipse 50% 50% at 70% 30%, rgba(161,140,123,0.04) 0%, transparent 50%),
+                radial-gradient(ellipse 80% 40% at 50% 100%, rgba(234,216,202,0.25) 0%, transparent 60%),
+                repeating-radial-gradient(ellipse 120% 30% at 50% 100%, transparent 0px, transparent 18px, rgba(74,44,33,0.01) 18px, rgba(74,44,33,0.01) 20px);
+        }
+
+        .bg-trust {
+            background:
+                repeating-linear-gradient(175deg, transparent 0px, transparent 4px, rgba(74,44,33,0.012) 4px, rgba(74,44,33,0.012) 5px),
+                radial-gradient(ellipse 60% 80% at 50% 50%, rgba(242,230,220,0.4) 0%, transparent 70%),
+                #EFE3D8;
+        }
+
+        .bg-benefits {
+            background:
+                repeating-linear-gradient(0deg, transparent 0px, transparent 6px, rgba(74,44,33,0.008) 6px, rgba(74,44,33,0.008) 7px),
+                repeating-linear-gradient(90deg, transparent 0px, transparent 6px, rgba(74,44,33,0.008) 6px, rgba(74,44,33,0.008) 7px),
+                radial-gradient(ellipse 50% 50% at 20% 20%, rgba(242,230,220,0.5) 0%, transparent 60%),
+                radial-gradient(ellipse 40% 40% at 85% 75%, rgba(161,140,123,0.03) 0%, transparent 50%),
+                #F2E6DC;
+            background-attachment: fixed;
+            background-size: 7px 7px, 7px 7px, 100% 100%, 100% 100%, 100% 100%;
+        }
+
+        .bg-savoir-faire {
+            background:
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E"),
+                linear-gradient(135deg, rgba(242,230,220,0.3) 0%, transparent 40%, rgba(161,140,123,0.03) 100%),
+                radial-gradient(ellipse 30% 50% at 80% 60%, rgba(74,44,33,0.04) 0%, transparent 60%),
+                #EEE2D6;
+            background-size: 200px 200px, 100% 100%, 100% 100%, 100% 100%;
+        }
+
+        .bg-offres {
+            background:
+                radial-gradient(ellipse 80% 20% at 25% 15%, rgba(242,230,220,0.35) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 15% at 70% 55%, rgba(234,216,202,0.2) 0%, transparent 50%),
+                radial-gradient(ellipse 40% 30% at 45% 85%, rgba(242,230,220,0.3) 0%, transparent 50%),
+                radial-gradient(ellipse 30% 20% at 85% 25%, rgba(161,140,123,0.025) 0%, transparent 50%),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.015'/%3E%3C/svg%3E"),
+                #F2E6DC;
+            background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 256px 256px, 100% 100%;
+            background-attachment: fixed, fixed, fixed, fixed, fixed, fixed;
+        }
+
+        .bg-distribution {
+            background:
+                radial-gradient(ellipse 70% 50% at 50% 0%, rgba(242,230,220,0.5) 0%, transparent 60%),
+                radial-gradient(ellipse 40% 80% at 0% 50%, rgba(74,44,33,0.025) 0%, transparent 60%),
+                radial-gradient(ellipse 40% 80% at 100% 50%, rgba(74,44,33,0.025) 0%, transparent 60%),
+                repeating-linear-gradient(45deg, transparent 0px, transparent 8px, rgba(74,44,33,0.005) 8px, rgba(74,44,33,0.005) 9px),
+                #EFE3D8;
+            background-size: 100% 100%, 100% 100%, 100% 100%, 9px 9px, 100% 100%;
+        }
+
+        .bg-testimonials {
+            background:
+                radial-gradient(ellipse 100% 60% at 30% 20%, rgba(242,230,220,0.45) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 60% at 80% 80%, rgba(161,140,123,0.03) 0%, transparent 50%),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.018'/%3E%3C/svg%3E"),
+                #F2E6DC;
+            background-size: 100% 100%, 100% 100%, 200px 200px, 100% 100%;
+            background-attachment: fixed, fixed, fixed, fixed;
+        }
+
+        .bg-faq {
+            background:
+                linear-gradient(180deg, rgba(242,230,220,0.2) 0%, transparent 20%, transparent 80%, rgba(234,216,202,0.15) 100%),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E"),
+                repeating-linear-gradient(180deg, transparent 0px, transparent 39px, rgba(74,44,33,0.01) 39px, rgba(74,44,33,0.01) 40px),
+                #EEE2D6;
+            background-size: 100% 100%, 300px 300px, 40px 40px, 100% 100%;
+        }
+
+        .bg-cta-final {
+            background:
+                repeating-linear-gradient(87deg, transparent 0px, transparent 40px, rgba(255,255,255,0.01) 40px, rgba(255,255,255,0.01) 42px),
+                repeating-linear-gradient(93deg, transparent 0px, transparent 60px, rgba(0,0,0,0.03) 60px, rgba(0,0,0,0.03) 62px),
+                radial-gradient(ellipse 60% 50% at 30% 30%, rgba(161,140,123,0.08) 0%, transparent 50%),
+                radial-gradient(ellipse 40% 40% at 80% 70%, rgba(242,230,220,0.03) 0%, transparent 50%),
+                linear-gradient(160deg, #4A2C21 0%, #351F17 60%, #241510 100%);
+        }
+
+        .bg-footer {
+            background:
+                radial-gradient(1px 1px at 10% 20%, rgba(242,230,220,0.1) 0%, transparent 100%),
+                radial-gradient(1px 1px at 30% 60%, rgba(242,230,220,0.06) 0%, transparent 100%),
+                radial-gradient(1px 1px at 55% 15%, rgba(242,230,220,0.08) 0%, transparent 100%),
+                radial-gradient(1px 1px at 75% 45%, rgba(242,230,220,0.05) 0%, transparent 100%),
+                radial-gradient(1px 1px at 90% 80%, rgba(242,230,220,0.06) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 20% 40%, rgba(161,140,123,0.08) 0%, transparent 100%),
+                radial-gradient(1px 1px at 65% 70%, rgba(242,230,220,0.05) 0%, transparent 100%),
+                radial-gradient(ellipse 40% 30% at 15% 90%, rgba(161,140,123,0.05) 0%, transparent 50%),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E"),
+                linear-gradient(180deg, #1A0F0A 0%, #130B07 100%);
+            background-size:
+                100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
+                100% 100%, 200px 200px, 100% 100%;
+        }
+
+        /* --- Blobs --- */
+        .blob-layer { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+        .blob { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.25; will-change: transform; }
+        @keyframes blob-drift-1 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(30px, -20px) scale(1.05); }
+            50% { transform: translate(-10px, 15px) scale(0.95); }
+            75% { transform: translate(-25px, -10px) scale(1.02); }
+        }
+        @keyframes blob-drift-2 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(-20px, 25px) scale(1.08); }
+            66% { transform: translate(15px, -15px) scale(0.96); }
+        }
+        @keyframes blob-drift-3 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(20px, 20px) scale(1.04); }
+        }
+        .blob-1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(242,230,220,0.6) 0%, transparent 70%); top: -10%; right: -5%; animation: blob-drift-1 22s ease-in-out infinite; }
+        .blob-2 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(161,140,123,0.1) 0%, transparent 70%); bottom: -5%; left: -5%; animation: blob-drift-2 28s ease-in-out infinite; }
+        .blob-3 { width: 350px; height: 350px; background: radial-gradient(circle, rgba(234,216,202,0.4) 0%, transparent 70%); top: 40%; left: 30%; animation: blob-drift-3 32s ease-in-out infinite; }
+
+        /* --- Séparateurs luxueux --- */
+        .section-divider-top { position: relative; }
+        .section-divider-top::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 10%;
+            right: 10%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(74,44,33,0.07) 20%, rgba(161,140,123,0.1) 50%, rgba(74,44,33,0.07) 80%, transparent 100%);
+        }
+
+        /* --- Cartes matière luxe --- */
+        .card-matter {
+            background:
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 128 128' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.015'/%3E%3C/svg%3E"),
+                rgba(255,255,255,0.5);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(74,44,33,0.05);
+            border-radius: 1.5rem;
+        }
+        .card-matter-lg {
+            background:
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 128 128' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.015'/%3E%3C/svg%3E"),
+                rgba(255,255,255,0.5);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(74,44,33,0.05);
+            border-radius: 2.5rem;
+        }
+        .card-dark-wood {
+            background:
+                repeating-linear-gradient(88deg, transparent 0px, transparent 25px, rgba(255,255,255,0.015) 25px, rgba(255,255,255,0.015) 27px),
+                repeating-linear-gradient(92deg, transparent 0px, transparent 45px, rgba(0,0,0,0.04) 45px, rgba(0,0,0,0.04) 47px),
+                radial-gradient(ellipse 60% 40% at 50% 50%, rgba(161,140,123,0.06) 0%, transparent 60%),
+                linear-gradient(160deg, #4A2C21 0%, #351F17 100%);
+            border-radius: 1.5rem;
+        }
+        .card-highlight {
+            background:
+                radial-gradient(ellipse 80% 60% at 50% 30%, rgba(161,140,123,0.04) 0%, transparent 60%),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 128 128' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.012'/%3E%3C/svg%3E"),
+                rgba(255,255,255,0.75);
+            border-radius: 2.5rem;
+            box-shadow:
+                0 0 0 1px #A18C7B,
+                0 25px 50px -12px rgba(74,44,33,0.12),
+                inset 0 1px 0 rgba(255,255,255,0.6);
+        }
+        .img-warm-shadow {
+            border-radius: 2rem;
+            box-shadow: 0 30px 60px -15px rgba(74,44,33,0.12), 0 8px 20px -8px rgba(74,44,33,0.06);
+        }
+        .img-warm-shadow-lg {
+            border-radius: 2.5rem;
+            box-shadow: 0 35px 70px -15px rgba(74,44,33,0.16), 0 12px 25px -8px rgba(74,44,33,0.08);
+        }
+        .bento-pattern {
+            background-image:
+                radial-gradient(circle at 90% 10%, rgba(161,140,123,0.04) 0%, transparent 50%),
+                radial-gradient(circle at 10% 90%, rgba(242,230,220,0.3) 0%, transparent 50%);
+        }
+
+        /* =============================================
+           ANIMATIONS — Luxe (plus lentes, plus fluides)
+           ============================================= */
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1), transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.12s; }
+        .reveal-delay-2 { transition-delay: 0.24s; }
+        .reveal-delay-3 { transition-delay: 0.36s; }
+        .reveal-delay-4 { transition-delay: 0.48s; }
+        .reveal-delay-5 { transition-delay: 0.6s; }
+
+        .card-hover {
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 30px 60px -15px rgba(74,44,33,0.1); }
+
+        .faq-answer {
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.6s cubic-bezier(0.22, 1, 0.36, 1), padding 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .faq-answer.open { max-height: 300px; }
+        .faq-icon { transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+        .faq-icon.rotated { transform: rotate(45deg); }
+
+        .toast { transform: translateY(20px); opacity: 0; transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+        .toast.show { transform: translateY(0); opacity: 1; }
+
+        .navbar-scrolled {
+            background: rgba(242,230,220,0.85) !important;
+            backdrop-filter: blur(24px) saturate(1.3) !important;
+            box-shadow: 0 1px 0 rgba(74,44,33,0.06) !important;
+        }
+
+        .mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
+        .mobile-menu.open { max-height: 400px; }
+
+        .star-filled { color: #A18C7B; }
+
+        /* --- Scrollbar luxe --- */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #EEE2D6; }
+        ::-webkit-scrollbar-thumb { background: #C9B9AA; border-radius: 999px; }
+        ::-webkit-scrollbar-thumb:hover { background: #A18C7B; }
+
+        @keyframes gentle-float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .float-gentle { animation: gentle-float 7s ease-in-out infinite; }
+
+        /* --- Lien luxe : trait qui se dessine --- */
+        .link-underline {
+            position: relative;
+            display: inline-block;
+        }
+        .link-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #A18C7B;
+            transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .link-underline:hover::after { width: 100%; }
+
+        /* --- Footer social icons --- */
+        .social-icon {
+            width: 44px; height: 44px;
+            display: flex; align-items: center; justify-content: center;
+            border: 1px solid rgba(161,140,123,0.2);
+            border-radius: 50%;
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            color: #A18C7B;
+        }
+        .social-icon:hover {
+            background: rgba(161,140,123,0.12);
+            border-color: rgba(161,140,123,0.4);
+            color: #F2E6DC;
+            transform: translateY(-2px);
+        }
+
+        /* --- Badge luxe --- */
+        .badge-luxe {
+            font-size: 0.625rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { transition: opacity 0.3s ease; transform: none; }
+            .reveal.active { transform: none; }
+            .float-gentle { animation: none; }
+            .card-hover:hover { transform: none; }
+            .blob { animation: none !important; }
+            .link-underline::after { transition: none; }
+        }
+    </style>
+</head>
+
+<body class="bg-coco-100 text-coco-500 font-sans antialiased overflow-x-hidden">
+
+    <!-- TOAST -->
+    <div id="toast" class="toast fixed bottom-6 right-6 z-[100] px-6 py-4 rounded-organic flex items-center gap-3 max-w-sm" style="background: linear-gradient(135deg, #4A2C21, #351F17); border: 1px solid rgba(161,140,123,0.15); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.4);">
+        <i data-lucide="check-circle" class="w-5 h-5 text-coco-400 flex-shrink-0"></i>
+        <span id="toast-message" class="text-sm font-light text-coco-100">Message</span>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- 1. NAVBAR -->
+    <!-- ============================================ -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-700" style="background: transparent;">
+        <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14">
+            <div class="flex items-center justify-between h-20">
+                <a href="#" class="font-serif text-[1.65rem] font-bold text-coco-500 tracking-[0.08em]">KÙKÙÉ</a>
+                <div class="hidden md:flex items-center gap-10">
+                    <a href="#histoire" class="link-underline text-[0.8rem] font-medium text-coco-400 hover:text-coco-500 transition-colors duration-500 tracking-[0.06em] uppercase">Notre histoire</a>
+                    <a href="#bougies" class="link-underline text-[0.8rem] font-medium text-coco-400 hover:text-coco-500 transition-colors duration-500 tracking-[0.06em] uppercase">Nos bougies</a>
+                    <a href="#professionnels" class="link-underline text-[0.8rem] font-medium text-coco-400 hover:text-coco-500 transition-colors duration-500 tracking-[0.06em] uppercase">Professionnels</a>
+                    <a href="#contact" class="link-underline text-[0.8rem] font-medium text-coco-400 hover:text-coco-500 transition-colors duration-500 tracking-[0.06em] uppercase">Contact</a>
+                    <button onclick="showToast('Nous vous contacterons très vite !')" class="ml-2 bg-coco-400 hover:bg-coco-500 text-coco-100 text-[0.7rem] font-semibold px-7 py-3 rounded-full transition-all duration-500 tracking-[0.1em] uppercase">
+                        Devenir partenaire
+                    </button>
+                </div>
+                <button id="menu-toggle" class="md:hidden p-2 text-coco-500" aria-label="Ouvrir le menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <div id="mobile-menu" class="mobile-menu md:hidden">
+                <div class="pb-6 pt-4 flex flex-col gap-4" style="border-top: 1px solid rgba(74,44,33,0.06);">
+                    <a href="#histoire" class="text-sm font-medium text-coco-400 hover:text-coco-500 py-2 tracking-wider uppercase" style="font-size:0.7rem;" onclick="closeMobileMenu()">Notre histoire</a>
+                    <a href="#bougies" class="text-sm font-medium text-coco-400 hover:text-coco-500 py-2 tracking-wider uppercase" style="font-size:0.7rem;" onclick="closeMobileMenu()">Nos bougies</a>
+                    <a href="#professionnels" class="text-sm font-medium text-coco-400 hover:text-coco-500 py-2 tracking-wider uppercase" style="font-size:0.7rem;" onclick="closeMobileMenu()">Professionnels</a>
+                    <a href="#contact" class="text-sm font-medium text-coco-400 hover:text-coco-500 py-2 tracking-wider uppercase" style="font-size:0.7rem;" onclick="closeMobileMenu()">Contact</a>
+                    <button onclick="showToast('Nous vous contacterons très vite !'); closeMobileMenu();" class="bg-coco-400 hover:bg-coco-500 text-coco-100 text-[0.7rem] font-semibold px-7 py-3 rounded-full transition-all duration-500 tracking-[0.1em] uppercase w-full mt-2">Devenir partenaire</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================ -->
+    <!-- 2. HERO -->
+    <!-- ============================================ -->
+    <section class="bg-hero relative min-h-screen flex items-center pt-20 pb-16 sm:pb-24 overflow-hidden">
+        <div class="blob-layer"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
+        <div class="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 w-full z-10">
+            <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="reveal inline-flex items-center gap-3 rounded-full px-6 py-2.5 mb-10" style="background: rgba(234,216,202,0.45); border: 1px solid rgba(74,44,33,0.05); backdrop-filter: blur(8px);">
+                        <span class="text-base">🌴</span>
+                        <span class="badge-luxe text-coco-400">Fabriqué artisanalement à Grand-Bassam</span>
+                    </div>
+                    <h1 class="reveal reveal-delay-1 font-serif text-[2.6rem] sm:text-5xl lg:text-[3.6rem] xl:text-[4.2rem] font-light text-coco-500 leading-[1.08] tracking-[-0.01em] mb-7">
+                        Des bougies coulées à la main,<br class="hidden sm:block"> dans la coque même de la coco.
+                    </h1>
+                    <p class="reveal reveal-delay-2 text-base sm:text-[1.05rem] font-light text-coco-400 leading-[1.75] max-w-lg mb-12 tracking-[0.01em]">
+                        Bougies de soja parfumées, coulées dans des coques de coco recyclées. Un objet d'art vivant qui transforme l'ambiance de votre établissement et raconte l'histoire de la Côte d'Ivoire.
+                    </p>
+                    <div class="reveal reveal-delay-3 flex flex-col sm:flex-row gap-4">
+                        <button onclick="showToast('Votre catalogue professionnel est en route !')" class="group bg-coco-400 hover:bg-coco-500 text-coco-100 font-medium px-9 py-4 rounded-full transition-all duration-500 hover:shadow-xl flex items-center justify-center gap-3 tracking-[0.06em]" style="font-size:0.8rem;">
+                            Demander notre catalogue pro
+                            <i data-lucide="arrow-right" class="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1"></i>
+                        </button>
+                        <a href="#bougies" class="group border-2 text-coco-500 font-medium px-9 py-4 rounded-full transition-all duration-500 hover:bg-coco-100/40 flex items-center justify-center gap-3 tracking-[0.06em]" style="font-size:0.8rem; border-color: rgba(74,44,33,0.1);">
+                            Voir la collection
+                            <i data-lucide="eye" class="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity duration-500"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2 reveal reveal-delay-2">
+                    <div class="relative float-gentle">
+                        <div class="img-warm-shadow overflow-hidden">
+                            <img src="https://picsum.photos/seed/kukue-hero-coco/800/1000.jpg" alt="Bougies KÙKÙÉ accrochées dans un cocotier" class="w-full h-[380px] sm:h-[500px] lg:h-[580px] object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- 3. BANDEAU CONFIANCE -->
+    <!-- ============================================ -->
+    <section class="bg-trust relative py-12 sm:py-16 section-divider-top overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 relative z-10">
+            <p class="reveal text-center badge-luxe text-coco-300 tracking-[0.2em] mb-10">Déjà choisis par des hôtels et restaurants en Côte d'Ivoire</p>
+            <div class="reveal reveal-delay-1 flex flex-wrap items-center justify-center gap-x-14 gap-y-6">
+                <span class="text-xl sm:text-2xl font-serif font-medium text-coco-300/40 hover:text-coco-400/60 transition-colors duration-700 cursor-default tracking-wide">Hôtel Ivoire</span>
+                <span class="text-xl sm:text-2xl font-serif font-medium text-coco-300/40 hover:text-coco-400/60 transition-colors duration-700 cursor-default tracking-wide">Le Laguna</span>
+                <span class="text-xl sm:text-2xl font-serif font-medium text-coco-300/40 hover:text-coco-400/60 transition-colors duration-700 cursor-default tracking-wide">Maquis du Port</span>
+                <span class="text-xl sm:text-2xl font-serif font-medium text-coco-300/40 hover:text-coco-400/60 transition-colors duration-700 cursor-default tracking-wide">Spa Ébrié</span>
+                <span class="text-xl sm:text-2xl font-serif font-medium text-coco-300/40 hover:text-coco-400/60 transition-colors duration-700 cursor-default tracking-wide">Boutique Assinie</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- 4. BÉNÉFICES -->
+    <!-- ============================================ -->
+    <section id="bougies" class="bg-benefits relative py-24 sm:py-32 section-divider-top overflow-hidden">
+        <div class="blob-layer"><div class="blob blob-3"></div></div>
+        <div class="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 z-10">
+            <div class="text-center max-w-2xl mx-auto mb-20">
+                <span class="reveal inline-block badge-luxe text-coco-400 mb-5">Pourquoi KÙKÙÉ</span>
+                <h2 class="reveal reveal-delay-1 font-serif text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-coco-500 leading-[1.15] tracking-[-0.01em] mb-6">Ce que nos bougies apportent à votre établissement</h2>
+                <p class="reveal reveal-delay-2 text-[0.95rem] font-light text-coco-400 leading-[1.75]">Chaque bougie est une expérience sensorielle qui enrichit votre espace et marque les esprits de vos clients.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                <div class="reveal card-hover card-matter md:col-span-2 p-9 sm:p-11 bento-pattern">
+                    <div class="flex items-start gap-5">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center" style="background: rgba(161,140,123,0.08);"><i data-lucide="flame" class="w-6 h-6 text-coco-400"></i></div>
+                        <div>
+                            <h3 class="font-serif text-xl sm:text-2xl font-medium text-coco-500 mb-3 tracking-[-0.01em]">Une ambiance olfactive signature pour votre établissement</h3>
+                            <p class="text-sm font-light text-coco-400 leading-[1.75]">Offrez à vos clients une immersion sensorielle dès leur arrivée. Nos senteurs inspirées des tropiques — vanille, coco, jasmin, ylang-ylang — créent une atmosphère unique que l'on n'oublie pas.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal reveal-delay-1 card-hover card-dark-wood md:row-span-2 p-9 sm:p-11 flex flex-col justify-between text-coco-100">
+                    <div>
+                        <div class="w-12 h-12 bg-white/8 rounded-2xl flex items-center justify-center mb-7"><i data-lucide="leaf" class="w-6 h-6 text-coco-300"></i></div>
+                        <h3 class="font-serif text-xl sm:text-2xl font-medium mb-4 tracking-[-0.01em]">100% artisanal, matières locales et durables</h3>
+                        <p class="text-sm font-light text-coco-200/70 leading-[1.75]">Cire de soja naturelle, mèches coton, coques de coco récupérées localement à Grand-Bassam. Zéro déchet, tout cycle.</p>
+                    </div>
+                    <div class="mt-8 flex items-center gap-3 text-coco-300">
+                        <i data-lucide="recycle" class="w-4 h-4"></i>
+                        <span class="badge-luxe">Éco-responsable</span>
+                    </div>
+                </div>
+                <div class="reveal reveal-delay-2 card-hover card-matter p-8 bento-pattern">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-5" style="background: rgba(161,140,123,0.08);"><i data-lucide="paintbrush" class="w-5 h-5 text-coco-400"></i></div>
+                    <h3 class="font-serif text-lg font-medium text-coco-500 mb-2 tracking-[-0.01em]">Personnalisation possible</h3>
+                    <p class="text-sm font-light text-coco-400 leading-[1.75]">Logo gravé, senteur sur-mesure, packaging à votre image — nous créons une édition qui vous ressemble.</p>
+                </div>
+                <div class="reveal reveal-delay-3 card-hover card-matter p-8 bento-pattern">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-5" style="background: rgba(161,140,123,0.08);"><i data-lucide="map-pin" class="w-5 h-5 text-coco-400"></i></div>
+                    <h3 class="font-serif text-lg font-medium text-coco-500 mb-2 tracking-[-0.01em]">Un objet déco qui raconte une histoire ivoirienne</h3>
+                    <p class="text-sm font-light text-coco-400 leading-[1.75]">Vos clients repartent avec un bout de Côte d'Ivoire. La bougie coco KÙKÙÉ est un souvenir, un cadeau, une conversation.</p>
+                </div>
+                <div class="reveal reveal-delay-3 card-hover card-matter md:col-span-2 p-9 sm:p-11 bento-pattern">
+                    <div class="flex flex-col sm:flex-row gap-10">
+                        <div class="flex-1">
+                            <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-5" style="background: rgba(161,140,123,0.08);"><i data-lucide="heart" class="w-5 h-5 text-coco-400"></i></div>
+                            <h3 class="font-serif text-lg font-medium text-coco-500 mb-2 tracking-[-0.01em]">Sourcing responsable, impact local à Grand-Bassam</h3>
+                            <p class="text-sm font-light text-coco-400 leading-[1.75]">Chaque commande soutient directement les artisans et collecteurs de la région. Un partenenaire qui a du sens.</p>
+                        </div>
+                        <div class="flex-1">
+                            <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-5" style="background: rgba(161,140,123,0.08);"><i data-lucide="truck" class="w-5 h-5 text-coco-400"></i></div>
+                            <h3 class="font-serif text-lg font-medium text-coco-500 mb-2 tracking-[-0.01em]">Livraison et réassort simplifiés pour les professionnels</h3>
+                            <p class="text-sm font-light text-coco-400 leading-[1.75]">Gestion de stock facilitée, commandes récurrentes, livraison sur Abidjan et environs. Vous n'avez qu'à allumer.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- 5. SAVOIR-FAIRE -->
+    <!-- ============================================ -->
+    <section id="histoire" class="bg-savoir-faire relative py-24 sm:py-32 section-divider-top overflow-hidden">
+        <div class="blob-layer"><div class="blob" style="width:400px;height:400px;background:radial-gradient(circle,rgba(242,230,220,0.5) 0%,transparent 70%);top:10%;left:-5%;animation:blob-drift-2 24s ease-in-out infinite;opacity:0.25;"></div></div>
+        <div class="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 z-10">
+            <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+                <div>
+                    <span class="reveal inline-block badge-luxe text-coco-400 mb-5">Notre savoir-faire</span>
+                    <h2 class="reveal reveal-delay-1 font-serif text-3xl sm:text-4xl lg:text-[2.6rem] font-light text-coco-500 leading-[1.15] tracking-[-0.01em] mb-14">De la cocotte au cocotier, chaque bougie a une âme</h2>
+                    <div class="space-y-12">
+                        <div class="reveal reveal-delay-2 flex gap-6">
+                            <div class="flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center" style="background: rgba(161,140,123,0.08);"><span class="font-serif text-2xl font-light text-coco-400">01</span></div>
+                            <div>
+                                <h3 class="font-serif text-xl font-medium text-coco-500 mb-2 tracking-[-0.01em]">Collecte des coques de coco</h3>
+                                <p class="text-sm font-light text-coco-400 leading-[1.75]">Les coques sont récupérées auprès des vendeurs de noix de coco de Grand-Bassam — un geste simple qui donne une seconde vie à ce qui aurait été jeté.</p>
+                            </div>
+                        </div>
+                        <div class="reveal reveal-delay-3 flex gap-6">
+                            <div class="flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center" style="background: rgba(161,140,123,0.08);"><span class="font-serif text-2xl font-light text-coco-400">02</span></div>
+                            <div>
+                                <h3 class="font-serif text-xl font-medium text-coco-500 mb-2 tracking-[-0.01em]">Coulage à la main de la cire de soja parfumée</h3>
+                                <p class="text-sm font-light text-coco-400 leading-[1.75]">Chaque coque est nettoyée, préparée, puis remplie avec précision de cire de soja fondue, infusée d'huiles essentielles naturelles. Tout est fait à la main.</p>
+                            </div>
+                        </div>
+                        <div class="reveal reveal-delay-4 flex gap-6">
+                            <div class="flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center" style="background: rgba(161,140,123,0.08);"><span class="font-serif text-2xl font-light text-coco-400">03</span></div>
+                            <div>
+                                <h3 class="font-serif text-xl font-medium text-coco-500 mb-2 tracking-[-0.01em]">Livraison prête à l'emploi</h3>
+                                <p class="text-sm font-light text-coco-400 leading-[1.75]">Vos bougies arrivent emballées avec soin, prêtes à être placées dans vos espaces. Il ne reste plus qu'à allumer la mèche.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal reveal-delay-2">
+                    <div class="relative">
+                        <div class="img-warm-shadow overflow-hidden">
+                            <img src="https://picsum.photos/seed/kukue-artisan-bassine/700/900.jpg" alt="Artisane KÙKÙÉ avec une bassine de fruits tropicaux" class="w-full h-[440px] sm:h-[560px] object-cover">
+                        </div>
+                        <div class="absolute -z-10 -bottom-6 -right-6 w-full h-full rounded-organic-lg" style="background: linear-gradient(135deg, rgba(234,216,202,0.35), rgba(201,185,170,0.2));"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- 6. OFFRES PROFESSIONNELLES -->
+    <!-- ============================================ -->
+    <section id="professionnels" class="bg-offres relative py-24 sm:py-32 section-divider-top overflow-hidden">
+        <div class="blob-layer"><div class="blob" style="width:450px;height:450px;background:radial-gradient(circle,rgba(161,140,123,0.06) 0%,transparent 70%);bottom:-10%;right:10%;animation:blob-drift-1 30s ease-in-out infinite;opacity:0.35;"></div></div>
+        <div class="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 z-10">
+            <div class="text-center max-w-2xl mx-auto mb-20">
+                <span class="reveal inline-block badge-luxe text-coco-400 mb-5">Offres professionnelles</span>
+                <h2 class="reveal reveal-delay-1 font-serif text-3xl sm:text-4xl lg:text-[2.75rem] font-light text-coco-500 leading-[1.15] tracking-[-0.01em] mb-6">Une formule adaptée à chaque besoin</h2>
+                <p class="reveal reveal-delay-2 text-[0.95rem] font-light text-coco-400 leading-[1.75]">Que vous testiez l'expérience ou que vous cherchiez un partenaire olfactif sur le long terme, nous avons ce qu'il vous faut.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6 lg:gap-7 items-stretch">
+                <div class="reveal card-hover card-matter-lg p-9 sm:p-10 flex flex-col">
+                    <div class="mb-7">
+                        <h3 class="font-serif text-2xl font-medium text-coco-500 mb-2 tracking-[-0.01em]">Découverte</h3>
+                        <p class="text-sm font-light text-coco-400">Idéal pour tester en boutique ou en chambre</p>
+                    </div>
+                    <ul class="space-y-3.5 mb-9 flex-1">
+                        <li class="flex items-start gap-3 text-sm font-light text-coco-400"><i data-lucide="check" class="w-4 h-4 text-coco-400 flex-shrink-0 mt-0.5"></i>Petites quantités à l'unité</li>
+                        <li class="flex items-start gap-3 text-sm font-light text-coco-400"><i data-lucide="check" class="w-4 h-4 text-coco-400 flex-shrink-0 mt-0.5"></i>Choix parmi nos senteurs signature</li>
+                        <li class="flex items-start gap-3 text-sm font-light text-coco-400"><i data-lucide="check" class="w-4 h-4 text-coco-400 flex-shrink-0 mt-0.5"></i>Packaging standard KÙKÙÉ</li>
+                        <li class="flex items-start gap-3 text-sm font-light text-coco-400"><i data-lucide="check" class="w-4 h-4 text-coco-400 flex-shrink-0 mt-0.5"></i>Livraison sur Abidjan</li>
+                    </ul>
+                    <button onclick="showToast('Votre demande de devis « Découverte » a bien été envoyée !')" class="w-full border-2 text-coco-500 font-medium py-3.5 rounded-full transition-all duration-500 text-[0.75rem] hover:bg-coco-100/40 tracking-[0.08em] uppercase" style="border-color: rgba(74,44,33,0.1);">Demander un devis</button>
+                </div>
+                <div class="reveal reveal-delay-1 card-hover card-highlight p-9 sm:p-10 flex flex-col relative md:-mt-4 md:mb-[-1rem]">
+                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-coco-400 text-coco-100 badge-luxe px-6 py-1.5 rounded-full" style="box-shadow: 0 8px 24px rgba(74,44,33,0.2);">Recommandé</div>
+                    <div class="mb-7 mt-2">
+                        <h3 class="font-serif text-2xl font-medium text-coco-500 mb-2 tracking-[-0.01em]">Partenaire</h3>
+                        <p class="text-sm font-light text-coco-400">Volumes réguliers, tarifs dégressifs, réassort</p>
+                    </div>
+                    <ul class="space-y-3.5 mb-9 flex-1">
+                        <li class="flex items-start gap-3 text-sm font-light text-coco-400"><i data-lucide="check" class="w-4 h-4 text-coco-400 flex-shrink-0 mt-0.5"></i>Tarifs dégressifs dès 20 unités</li>
+                        <li class="flex items-start gap-3 text-sm font-light text-coco-400"><i data-lucide="check" class="w-4 h-4 text-coco-400 flex-shrink-0 mt-0.5"></i>Réassort automatique simplifié</li>
+                        <li class="flex items-start gap-3 text-sm font-light text-coco-400"><i data-lucide="check" class="w-4 h-4 text-coco-400 flex-shrink-0 mt-0.5"></i>Choix large de senteurs</li>
+                        <li class="flex items-start gap-3 text-sm font-light text-coco-400"><i data-lucide="check" class="w-4 h-4 text-coco-400 flex-shrink-0 mt-0.5"></i>Support dédié et conseil olfactif</li>
+                        <li class="flex items-start gap-3 text-sm font-light text-coco-400"><i data-lucide="check" class="w-4 h-4 text-coco-400 flex-shrink-0 mt-0.5"></i>Livraison prioritaire incluse</li>
+                    </ul>
+                    <button onclick="showToast('Votre demande de devis « Partenaire » a bien été envoyée !')" class="w-full bg-coco-400 hover:bg-coco-500 text-coco-100 font-medium py-3.5 rounded-full transition-all duration-500 text-[0.75rem] tracking-[0.08em] uppercase">Demander un devis</button>
+                </div>
+                <div class="reveal reveal-delay-2 card-hover card-matter-lg p-9 sm:p-10 flex flex-col">
+                    <div class="mb-7">
+                        <h3 class="font-serif text-2xl font-medium text-coco-500 mb-2 tracking-[-0.01em]">Sur-mesure</h3>
+                        <p class="text-sm font-light text-coco-400">Senteur exclusive, packaging personnalisé, gros volumes</p>
+                    </div>
+                    <ul class="space-y-3.5 mb-9 flex-1">
+                        <li class="flex items-start gap-3 text-sm font-light text-coco-400"><i data-lucide="check" class="w-4 h-4 text-coco-400 flex-shrink-0 mt-0.5"></i>Création de senteur exclusive</li>
+                        <li class="flex items-start gap-3 text-sm font-light text-coco-400"><i data-lucide="check" class="w-4 h-4 text-coco-400 flex-shrink-0 mt-0.5"></i>Packaging personnalisé (logo, couleurs)</li>
+                        <li class="flex items-start gap-3 text-sm font-light text-coco-400"><i data-lucide="check" class="w-4 h-4 text-coco-400 flex-shrink-0 mt-0.5"></i>Volumes hôteliers (50+ unités)</li>
+                        <li class="flex items-start gap-3 text-sm font-light text-coco-400"><i data-lucide="check" class="w-4 h-4 text-coco-400 flex-shrink-0 mt-0.5"></i>Chef de projet dédié</li>
+                        <li class="flex items-start gap-3 text-sm font-light text-coco-400"><i data-lucide="check" class="w-4 h-4 text-coco-400 flex-shrink-0 mt-0.5"></i>Échantillons de validation inclus</li>
+                    </ul>
+                    <button onclick="showToast('Votre demande de devis « Sur-mesure » a bien été envoyée !')" class="w-full border-2 text-coco-500 font-medium py-3.5 rounded-full transition-all duration-500 text-[0.75rem] hover:bg-coco-100/40 tracking-[0.08em] uppercase" style="border-color: rgba(74,44,33,0.1);">Demander un devis</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- 7. DISTRIBUTION -->
+    <!-- ============================================ -->
+    <section class="bg-distribution relative py-24 sm:py-32 section-divider-top overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+                <div class="reveal order-2 lg:order-1">
+                    <div class="relative">
+                        <div class="img-warm-shadow overflow-hidden">
+                            <img src="https://picsum.photos/seed/kukue-marche-etal/800/600.jpg" alt="Étal KÙKÙÉ au marché de Grand-Bassam" class="w-full h-[340px] sm:h-[420px] object-cover">
+                        </div>
+                        <div class="absolute -z-10 -bottom-5 -left-5 w-full h-full rounded-organic-lg" style="background: linear-gradient(135deg, rgba(201,185,170,0.25), rgba(234,216,202,0.15));"></div>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <span class="reveal inline-block badge-luxe text-coco-400 mb-5">Distribution</span>
+                    <h2 class="reveal reveal-delay-1 font-serif text-3xl sm:text-4xl font-light text-coco-500 leading-[1.15] tracking-[-0.01em] mb-7">Où trouver KÙKÙÉ</h2>
+                    <p class="reveal reveal-delay-2 text-[0.95rem] font-light text-coco-400 leading-[1.75] mb-5">Présents chaque semaine sur les marchés de Grand-Bassam, nos bougies rencontrent aussi bien les locaux que les voyageurs. Aujourd'hui, nous ouvrons notre réseau à la distribution hôtelière et commerciale.</p>
+                    <p class="reveal reveal-delay-3 text-[0.95rem] font-light text-coco-400 leading-[1.75] mb-9">Si vous gérez un hôtel, un restaurant, un spa ou un concept store en Côte d'Ivoire (ou au-delà), parlons-en.</p>
+                    <div class="reveal reveal-delay-4 flex flex-wrap gap-3">
+                        <span class="inline-flex items-center gap-2.5 rounded-full px-5 py-2.5 text-[0.75rem] text-coco-400 card-matter tracking-wide"><i data-lucide="hotel" class="w-3.5 h-3.5 text-coco-400"></i> Hôtels</span>
+                        <span class="inline-flex items-center gap-2.5 rounded-full px-5 py-2.5 text-[0.75rem] text-coco-400 card-matter tracking-wide"><i data-lucide="utensils" class="w-3.5 h-3.5 text-coco-400"></i> Restaurants</span>
+                        <span class="inline-flex items-center gap-2.5 rounded-full px-5 py-2.5 text-[0.75rem] text-coco-400 card-matter tracking-wide"><i data-lucide="flower-2" class="w-3.5 h-3.5 text-coco-400"></i> Spas</span>
+                        <span class="inline-flex items-center gap-2.5 rounded-full px-5 py-2.5 text-[0.75rem] text-coco-400 card-matter tracking-wide"><i data-lucide="store" class="w-3.5 h-3.5 text-coco-400"></i> Concept stores</span>
+                        <span class="inline-flex items-center gap-2.5 rounded-full px-5 py-2.5 text-[0.75rem] text-coco-400 card-matter tracking-wide"><i data-lucide="sofa" class="w-3.5 h-3.5 text-coco-400"></i> Boutiques déco</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- 8. TÉMOIGNAGES -->
+    <!-- ============================================ -->
+    <section class="bg-testimonials relative py-24 sm:py-32 section-divider-top overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-20">
+                <span class="reveal inline-block badge-luxe text-coco-400 mb-5">Témoignages</span>
+                <h2 class="reveal reveal-delay-1 font-serif text-3xl sm:text-4xl font-light text-coco-500 leading-[1.15] tracking-[-0.01em]">Ce qu'en disent nos partenaires</h2>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="reveal card-hover card-matter p-7 flex flex-col">
+                    <div class="flex gap-1 mb-5"><i data-lucide="star" class="w-3.5 h-3.5 star-filled fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 star-filled fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 star-filled fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 star-filled fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 star-filled fill-current"></i></div>
+                    <p class="text-sm font-light text-coco-400 leading-[1.75] mb-6 flex-1 italic">"Nos clients nous demandent systématiquement d'où viennent ces bougies. L'odeur de coco-vanille dans le lobby est devenue notre signature."</p>
+                    <div class="flex items-center gap-3 pt-4" style="border-top: 1px solid rgba(74,44,33,0.05);">
+                        <div class="w-9 h-9 rounded-full flex items-center justify-center" style="background: rgba(234,216,202,0.4);"><span class="font-serif text-xs font-medium text-coco-400">AK</span></div>
+                        <div><p class="text-sm font-medium text-coco-500">Aminata K.</p><p class="text-[0.7rem] text-coco-300 tracking-wide">Hôtel du Lagune</p></div>
+                    </div>
+                </div>
+                <div class="reveal reveal-delay-1 card-hover card-matter p-7 flex flex-col">
+                    <div class="flex gap-1 mb-5"><i data-lucide="star" class="w-3.5 h-3.5 star-filled fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 star-filled fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 star-filled fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 star-filled fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 star-filled fill-current"></i></div>
+                    <p class="text-sm font-light text-coco-400 leading-[1.75] mb-6 flex-1 italic">"J'en ai mis une sur chaque table lors d'un événement privé. Les invités en ont parlé toute la soirée."</p>
+                    <div class="flex items-center gap-3 pt-4" style="border-top: 1px solid rgba(74,44,33,0.05);">
+                        <div class="w-9 h-9 rounded-full flex items-center justify-center" style="background: rgba(234,216,202,0.4);"><span class="font-serif text-xs font-medium text-coco-400">FD</span></div>
+                        <div><p class="text-sm font-medium text-coco-500">Fatou D.</p><p class="text-[0.7rem] text-coco-300 tracking-wide">Le Palabre</p></div>
+                    </div>
+                </div>
+                <div class="reveal reveal-delay-2 card-hover card-matter p-7 flex flex-col">
+                    <div class="flex gap-1 mb-5"><i data-lucide="star" class="w-3.5 h-3.5 star-filled fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 star-filled fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 star-filled fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 star-filled fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 star-filled fill-current"></i></div>
+                    <p class="text-sm font-light text-coco-400 leading-[1.75] mb-6 flex-1 italic">"La qualité artisanale se ressent immédiatement. Mes clientes adorent le concept éco-responsable et reviennent exprès pour les offrir."</p>
+                    <div class="flex items-center gap-3 pt-4" style="border-top: 1px solid rgba(74,44,33,0.05);">
+                        <div class="w-9 h-9 rounded-full flex items-center justify-center" style="background: rgba(234,216,202,0.4);"><span class="font-serif text-xs font-medium text-coco-400">MB</span></div>
+                        <div><p class="text-sm font-medium text-coco-500">Marie-Claire B.</p><p class="text-[0.7rem] text-coco-300 tracking-wide">Spa Ébrié</p></div>
+                    </div>
+                </div>
+                <div class="reveal reveal-delay-3 card-hover card-matter p-7 flex flex-col">
+                    <div class="flex gap-1 mb-5"><i data-lucide="star" class="w-3.5 h-3.5 star-filled fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 star-filled fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 star-filled fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 star-filled fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 star-filled fill-current"></i></div>
+                    <p class="text-sm font-light text-coco-400 leading-[1.75] mb-6 flex-1 italic">"Un produit qui se vend tout seul. Il suffit de le poser en vitrine. L'histoire de Grand-Bassam, la coque de coco, le parfum — tout clique."</p>
+                    <div class="flex items-center gap-3 pt-4" style="border-top: 1px solid rgba(74,44,33,0.05);">
+                        <div class="w-9 h-9 rounded-full flex items-center justify-center" style="background: rgba(234,216,202,0.4);"><span class="font-serif text-xs font-medium text-coco-400">KO</span></div>
+                        <div><p class="text-sm font-medium text-coco-500">Kouamé O.</p><p class="text-[0.7rem] text-coco-300 tracking-wide">Concept Store, Assinie</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- 9. FAQ -->
+    <!-- ============================================ -->
+    <section class="bg-faq relative py-24 sm:py-32 section-divider-top overflow-hidden">
+        <div class="max-w-3xl mx-auto px-6 sm:px-10 lg:px-14 relative z-10">
+            <div class="text-center mb-16">
+                <span class="reveal inline-block badge-luxe text-coco-400 mb-5">Questions fréquentes</span>
+                <h2 class="reveal reveal-delay-1 font-serif text-3xl sm:text-4xl font-light text-coco-500 leading-[1.15] tracking-[-0.01em]">Vous avez des questions ?</h2>
+            </div>
+            <div class="reveal reveal-delay-2 space-y-4">
+                <div class="faq-item card-matter overflow-hidden">
+                    <button class="faq-toggle w-full flex items-center justify-between px-8 py-6 text-left" aria-expanded="false">
+                        <span class="text-sm sm:text-base font-medium text-coco-500 pr-4 tracking-[-0.01em]">Quels volumes minimum pour une commande professionnelle ?</span>
+                        <i data-lucide="plus" class="faq-icon w-5 h-5 text-coco-400 flex-shrink-0"></i>
+                    </button>
+                    <div class="faq-answer px-8"><p class="text-sm font-light text-coco-400 leading-[1.75] pb-6">Il n'y a pas de minimum strict pour l'offre Découverte — vous pouvez commander à l'unité pour tester. Pour les offres Partenaire et Sur-mesure, les volumes commencent respectivement à 20 et 50 unités, avec des tarifs qui baissent avec la quantité.</p></div>
+                </div>
+                <div class="faq-item card-matter overflow-hidden">
+                    <button class="faq-toggle w-full flex items-center justify-between px-8 py-6 text-left" aria-expanded="false">
+                        <span class="text-sm sm:text-base font-medium text-coco-500 pr-4 tracking-[-0.01em]">Peut-on personnaliser la senteur ou le packaging ?</span>
+                        <i data-lucide="plus" class="faq-icon w-5 h-5 text-coco-400 flex-shrink-0"></i>
+                    </button>
+                    <div class="faq-answer px-8"><p class="text-sm font-light text-coco-400 leading-[1.75] pb-6">Absolument. L'offre Sur-mesure est conçue pour ça : nous créons une senteur exclusive à votre image et personnalisons le packaging (logo, couleurs, message). Même en offre Partenaire, des options de personnalisation légère sont disponibles.</p></div>
+                </div>
+                <div class="faq-item card-matter overflow-hidden">
+                    <button class="faq-toggle w-full flex items-center justify-between px-8 py-6 text-left" aria-expanded="false">
+                        <span class="text-sm sm:text-base font-medium text-coco-500 pr-4 tracking-[-0.01em]">Quels sont les délais de production et livraison ?</span>
+                        <i data-lucide="plus" class="faq-icon w-5 h-5 text-coco-400 flex-shrink-0"></i>
+                    </button>
+                    <div class="faq-answer px-8"><p class="text-sm font-light text-coco-400 leading-[1.75] pb-6">Pour les senteurs de notre collection, comptez 5 à 7 jours ouvrés. Pour une création sur-mesure, prévoyez 2 à 3 semaines (incluant la validation d'échantillons). La livraison sur Abidjan et Grand-Bassam est incluse.</p></div>
+                </div>
+                <div class="faq-item card-matter overflow-hidden">
+                    <button class="faq-toggle w-full flex items-center justify-between px-8 py-6 text-left" aria-expanded="false">
+                        <span class="text-sm sm:text-base font-medium text-coco-500 pr-4 tracking-[-0.01em]">Proposez-vous des tarifs dégressifs ?</span>
+                        <i data-lucide="plus" class="faq-icon w-5 h-5 text-coco-400 flex-shrink-0"></i>
+                    </button>
+                    <div class="faq-answer px-8"><p class="text-sm font-light text-coco-400 leading-[1.75] pb-6">Oui, dès l'offre Partenaire. Plus le volume augmente, plus le tarif unitaire baisse. Nous établissons un barème clair lors de notre premier échange, adapté à vos besoins réels. Pas de surprise, tout est transparent.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- 10. CTA FINAL -->
+    <!-- ============================================ -->
+    <section class="bg-cta-final relative py-24 sm:py-32 section-divider-top overflow-hidden">
+        <div class="blob-layer"><div class="blob" style="width:350px;height:350px;background:radial-gradient(circle,rgba(161,140,123,0.1) 0%,transparent 70%);top:-10%;left:60%;animation:blob-drift-3 26s ease-in-out infinite;opacity:0.4;filter:blur(100px);"></div></div>
+        <div class="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 z-10">
+            <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+                <div>
+                    <h2 class="reveal font-serif text-3xl sm:text-4xl lg:text-[2.8rem] font-light text-coco-100 leading-[1.12] tracking-[-0.01em] mb-7">Envie de parfumer votre établissement avec KÙKÙÉ ?</h2>
+                    <p class="reveal reveal-delay-1 text-[0.95rem] font-light text-coco-200/60 leading-[1.75] mb-12 max-w-lg">Parlons de votre projet. Que ce soit pour une commande test ou un partenenaire durable, nous sommes à votre écoute pour créer quelque chose de beau ensemble.</p>
+                    <div class="reveal reveal-delay-2 flex flex-col sm:flex-row gap-4">
+                        <button onclick="showToast('Merci ! Nous vous recontacterons sous 24h.')" class="group bg-coco-400 hover:bg-coco-500 text-coco-100 font-medium px-9 py-4 rounded-full transition-all duration-500 hover:shadow-xl flex items-center justify-center gap-3 tracking-[0.06em]" style="font-size:0.8rem;">
+                            Demander le catalogue pro
+                            <i data-lucide="arrow-right" class="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1"></i>
+                        </button>
+                        <a href="#contact" class="group border-2 text-coco-100 font-medium px-9 py-4 rounded-full transition-all duration-500 hover:bg-white/5 flex items-center justify-center gap-3 tracking-[0.06em]" style="font-size:0.8rem; border-color: rgba(242,230,220,0.12);">Prendre rendez-vous</a>
+                    </div>
+                </div>
+                <div class="reveal reveal-delay-1">
+                    <div class="relative">
+                        <div class="img-warm-shadow-lg overflow-hidden">
+                            <img src="https://picsum.photos/seed/kukue-coffret-mer/700/500.jpg" alt="Coffret KÙKÙÉ face à la mer" class="w-full h-[300px] sm:h-[380px] object-cover">
+                        </div>
+                        <div class="absolute -z-10 -bottom-4 -left-4 w-full h-full rounded-organic-xl" style="background: rgba(161,140,123,0.05);"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- 11. FOOTER — LUXE -->
+    <!-- ============================================ -->
+    <footer id="contact" class="bg-footer relative pt-20 pb-10 overflow-hidden">
+        <!-- Ligne dorée très fine en haut du footer -->
+        <div class="absolute top-0 left-[8%] right-[8%] h-px" style="background: linear-gradient(90deg, transparent, rgba(161,140,123,0.15) 30%, rgba(161,140,123,0.25) 50%, rgba(161,140,123,0.15) 70%, transparent);"></div>
+
+        <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 relative z-10">
+
+            <!-- Top section : logo + réseaux + tagline -->
+            <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 pb-14 mb-14" style="border-bottom: 1px solid rgba(161,140,123,0.08);">
+                <div>
+                    <a href="#" class="font-serif text-[2rem] font-bold text-coco-100 tracking-[0.1em] block mb-4">KÙKÙÉ</a>
+                    <p class="text-[0.8rem] font-light text-coco-400/40 leading-relaxed max-w-xs tracking-wide">
+                        Bougies artisanales coulées à la main<br>dans des coques de coco — Grand-Bassam, Côte d'Ivoire
+                    </p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <!-- Instagram -->
+                    <a href="#" class="social-icon" aria-label="Instagram KÙKÙÉ">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                    </a>
+                    <!-- WhatsApp -->
+                    <a href="#" class="social-icon" aria-label="WhatsApp KÙKÙÉ">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Colonnes -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 pb-14" style="border-bottom: 1px solid rgba(161,140,123,0.06);">
+                <div>
+                    <h4 class="badge-luxe text-coco-400/50 mb-6">Navigation</h4>
+                    <ul class="space-y-3.5">
+                        <li><a href="#histoire" class="link-underline text-[0.8rem] font-light text-coco-400/50 hover:text-coco-100 transition-colors duration-500 tracking-wide">Notre histoire</a></li>
+                        <li><a href="#bougies" class="link-underline text-[0.8rem] font-light text-coco-400/50 hover:text-coco-100 transition-colors duration-500 tracking-wide">Nos bougies</a></li>
+                        <li><a href="#professionnels" class="link-underline text-[0.8rem] font-light text-coco-400/50 hover:text-coco-100 transition-colors duration-500 tracking-wide">Professionnels</a></li>
+                        <li><a href="#contact" class="link-underline text-[0.8rem] font-light text-coco-400/50 hover:text-coco-100 transition-colors duration-500 tracking-wide">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="badge-luxe text-coco-400/50 mb-6">Contact</h4>
+                    <ul class="space-y-3.5">
+                        <li class="flex items-start gap-3 text-[0.8rem] font-light text-coco-400/45 tracking-wide">
+                            <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-coco-400/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            Grand-Bassam, Côte d'Ivoire
+                        </li>
+                        <li class="flex items-center gap-3 text-[0.8rem] font-light text-coco-400/45 tracking-wide">
+                            <svg class="w-4 h-4 flex-shrink-0 text-coco-400/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            +225 00 00 00 00
+                        </li>
+                        <li class="flex items-center gap-3 text-[0.8rem] font-light text-coco-400/45 tracking-wide">
+                            <svg class="w-4 h-4 flex-shrink-0 text-coco-400/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            contact@kukue.ci
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="badge-luxe text-coco-400/50 mb-6">Catalogue pro</h4>
+                    <p class="text-[0.8rem] font-light text-coco-400/40 leading-[1.75] mb-5 tracking-wide">Recevez notre catalogue professionnel et nos nouveautés.</p>
+                    <form id="newsletter-form" class="flex gap-2" onsubmit="handleNewsletter(event)">
+                        <input type="email" placeholder="votre@email.com" required class="flex-1 min-w-0 bg-transparent rounded-full px-5 py-3 text-[0.78rem] text-coco-100 placeholder:text-coco-400/25 focus:outline-none transition-colors duration-500 tracking-wide" style="border: 1px solid rgba(161,140,123,0.12);">
+                        <button type="submit" class="bg-coco-400 hover:bg-coco-500 text-coco-100 px-5 py-3 rounded-full transition-all duration-500 flex-shrink-0 flex items-center justify-center" style="box-shadow: 0 4px 15px rgba(161,140,123,0.15);" aria-label="S'inscrire">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                        </button>
+                    </form>
+                </div>
+                <div>
+                    <h4 class="badge-luxe text-coco-400/50 mb-6">Légale</h4>
+                    <ul class="space-y-3.5">
+                        <li><a href="#" class="link-underline text-[0.8rem] font-light text-coco-400/50 hover:text-coco-100 transition-colors duration-500 tracking-wide">Mentions légales</a></li>
+                        <li><a href="#" class="link-underline text-[0.8rem] font-light text-coco-400/50 hover:text-coco-100 transition-colors duration-500 tracking-wide">Politique de confidentialité</a></li>
+                        <li><a href="#" class="link-underline text-[0.8rem] font-light text-coco-400/50 hover:text-coco-100 transition-colors duration-500 tracking-wide">CGV professionnels</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom bar -->
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8">
+                <p class="text-[0.68rem] font-light text-coco-400/25 tracking-widest uppercase">© 2025 KÙKÙÉ — Tous droits réservés</p>
+                <p class="text-[0.68rem] font-light text-coco-400/20 tracking-widest uppercase">Grand-Bassam, Côte d'Ivoire</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================ -->
+    <!-- JAVASCRIPT -->
+    <!-- ============================================ -->
+    <script>
+        lucide.createIcons();
+
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('navbar-scrolled', window.scrollY > 60);
+        }, { passive: true });
+
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let menuOpen = false;
+
+        menuToggle.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            mobileMenu.classList.toggle('open', menuOpen);
+            menuToggle.querySelector('[data-lucide]').setAttribute('data-lucide', menuOpen ? 'x' : 'menu');
+            lucide.createIcons();
+        });
+
+        function closeMobileMenu() {
+            menuOpen = false;
+            mobileMenu.classList.remove('open');
+            menuToggle.querySelector('[data-lucide]').setAttribute('data-lucide', 'menu');
+            lucide.createIcons();
+        }
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        document.querySelectorAll('.faq-toggle').forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const item = toggle.closest('.faq-item');
+                const answer = item.querySelector('.faq-answer');
+                const icon = item.querySelector('.faq-icon');
+                const isOpen = answer.classList.contains('open');
+                document.querySelectorAll('.faq-answer.open').forEach(a => {
+                    a.classList.remove('open');
+                    a.closest('.faq-item').querySelector('.faq-icon').classList.remove('rotated');
+                    a.closest('.faq-item').querySelector('.faq-toggle').setAttribute('aria-expanded', 'false');
+                });
+                if (!isOpen) {
+                    answer.classList.add('open');
+                    icon.classList.add('rotated');
+                    toggle.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+
+        let toastTimeout;
+        function showToast(message) {
+            clearTimeout(toastTimeout);
+            document.getElementById('toast-message').textContent = message;
+            document.getElementById('toast').classList.add('show');
+            toastTimeout = setTimeout(() => document.getElementById('toast').classList.remove('show'), 4500);
+        }
+
+        function handleNewsletter(e) {
+            e.preventDefault();
+            const email = e.target.querySelector('input[type="email"]').value;
+            showToast(`Merci ! Le catalogue pro sera envoyé à ${email}`);
+            e.target.reset();
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
