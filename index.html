@@ -51,9 +51,6 @@
         .font-serif { font-family: 'Cormorant Garamond', Georgia, serif; }
         .font-sans { font-family: 'Inter', sans-serif; }
 
-        /* =============================================
-           FONDS — #4A2C21 · #F2E6DC · #A18C7B
-           ============================================= */
         body {
             background-color: #F2E6DC;
             background-image:
@@ -67,12 +64,11 @@
             background-size: 256px 256px, 3px 3px, 3px 3px, 100% 100%, 100% 100%, 100% 100%;
         }
 
-        .bg-hero {
+        .bg-hero-luxe {
             background:
-                radial-gradient(ellipse 90% 70% at 80% 15%, rgba(242,230,220,0.7) 0%, transparent 50%),
-                radial-gradient(ellipse 50% 50% at 70% 30%, rgba(161,140,123,0.04) 0%, transparent 50%),
-                radial-gradient(ellipse 80% 40% at 50% 100%, rgba(234,216,202,0.25) 0%, transparent 60%),
-                repeating-radial-gradient(ellipse 120% 30% at 50% 100%, transparent 0px, transparent 18px, rgba(74,44,33,0.01) 18px, rgba(74,44,33,0.01) 20px);
+                radial-gradient(ellipse 60% 40% at 50% 0%, rgba(242,230,220,0.4) 0%, transparent 70%),
+                radial-gradient(ellipse 30% 30% at 80% 20%, rgba(161,140,123,0.03) 0%, transparent 60%),
+                #F2E6DC;
         }
 
         .bg-trust {
@@ -169,7 +165,6 @@
                 100% 100%, 200px 200px, 100% 100%;
         }
 
-        /* --- Blobs --- */
         .blob-layer { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
         .blob { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.25; will-change: transform; }
         @keyframes blob-drift-1 {
@@ -191,7 +186,6 @@
         .blob-2 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(161,140,123,0.1) 0%, transparent 70%); bottom: -5%; left: -5%; animation: blob-drift-2 28s ease-in-out infinite; }
         .blob-3 { width: 350px; height: 350px; background: radial-gradient(circle, rgba(234,216,202,0.4) 0%, transparent 70%); top: 40%; left: 30%; animation: blob-drift-3 32s ease-in-out infinite; }
 
-        /* --- Séparateurs luxueux --- */
         .section-divider-top { position: relative; }
         .section-divider-top::before {
             content: '';
@@ -203,7 +197,6 @@
             background: linear-gradient(90deg, transparent 0%, rgba(74,44,33,0.07) 20%, rgba(161,140,123,0.1) 50%, rgba(74,44,33,0.07) 80%, transparent 100%);
         }
 
-        /* --- Cartes matière luxe --- */
         .card-matter {
             background:
                 url("data:image/svg+xml,%3Csvg viewBox='0 0 128 128' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.015'/%3E%3C/svg%3E"),
@@ -253,9 +246,21 @@
                 radial-gradient(circle at 10% 90%, rgba(242,230,220,0.3) 0%, transparent 50%);
         }
 
-        /* =============================================
-           ANIMATIONS — Luxe (plus lentes, plus fluides)
-           ============================================= */
+        /* Hero luxe — image débordante */
+        .hero-image-wrap {
+            position: relative;
+            margin-top: -4rem;
+        }
+        .hero-image-wrap::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 2rem;
+            background: linear-gradient(180deg, transparent 50%, rgba(74,44,33,0.06) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
         .reveal {
             opacity: 0;
             transform: translateY(35px);
@@ -295,23 +300,12 @@
 
         .star-filled { color: #A18C7B; }
 
-        /* --- Scrollbar luxe --- */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #EEE2D6; }
         ::-webkit-scrollbar-thumb { background: #C9B9AA; border-radius: 999px; }
         ::-webkit-scrollbar-thumb:hover { background: #A18C7B; }
 
-        @keyframes gentle-float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-        .float-gentle { animation: gentle-float 7s ease-in-out infinite; }
-
-        /* --- Lien luxe : trait qui se dessine --- */
-        .link-underline {
-            position: relative;
-            display: inline-block;
-        }
+        .link-underline { position: relative; display: inline-block; }
         .link-underline::after {
             content: '';
             position: absolute;
@@ -324,7 +318,6 @@
         }
         .link-underline:hover::after { width: 100%; }
 
-        /* --- Footer social icons --- */
         .social-icon {
             width: 44px; height: 44px;
             display: flex; align-items: center; justify-content: center;
@@ -340,7 +333,6 @@
             transform: translateY(-2px);
         }
 
-        /* --- Badge luxe --- */
         .badge-luxe {
             font-size: 0.625rem;
             letter-spacing: 0.25em;
@@ -348,10 +340,16 @@
             font-weight: 600;
         }
 
+        /* Hero label separator lines */
+        .hero-label-line {
+            width: 40px;
+            height: 1px;
+            background: rgba(74,44,33,0.15);
+        }
+
         @media (prefers-reduced-motion: reduce) {
             .reveal { transition: opacity 0.3s ease; transform: none; }
             .reveal.active { transform: none; }
-            .float-gentle { animation: none; }
             .card-hover:hover { transform: none; }
             .blob { animation: none !important; }
             .link-underline::after { transition: none; }
@@ -400,42 +398,53 @@
     </nav>
 
     <!-- ============================================ -->
-    <!-- 2. HERO -->
+    <!-- 2. HERO — LUXE EDITORIAL -->
     <!-- ============================================ -->
-    <section class="bg-hero relative min-h-screen flex items-center pt-20 pb-16 sm:pb-24 overflow-hidden">
-        <div class="blob-layer"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
-        <div class="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 w-full z-10">
-            <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
-                <div class="order-2 lg:order-1">
-                    <div class="reveal inline-flex items-center gap-3 rounded-full px-6 py-2.5 mb-10" style="background: rgba(234,216,202,0.45); border: 1px solid rgba(74,44,33,0.05); backdrop-filter: blur(8px);">
-                        <span class="text-base">🌴</span>
-                        <span class="badge-luxe text-coco-400">Fabriqué artisanalement à Grand-Bassam</span>
-                    </div>
-                    <h1 class="reveal reveal-delay-1 font-serif text-[2.6rem] sm:text-5xl lg:text-[3.6rem] xl:text-[4.2rem] font-light text-coco-500 leading-[1.08] tracking-[-0.01em] mb-7">
-                        Des bougies coulées à la main,<br class="hidden sm:block"> dans la coque même de la coco.
-                    </h1>
-                    <p class="reveal reveal-delay-2 text-base sm:text-[1.05rem] font-light text-coco-400 leading-[1.75] max-w-lg mb-12 tracking-[0.01em]">
-                        Bougies de soja parfumées, coulées dans des coques de coco recyclées. Un objet d'art vivant qui transforme l'ambiance de votre établissement et raconte l'histoire de la Côte d'Ivoire.
-                    </p>
-                    <div class="reveal reveal-delay-3 flex flex-col sm:flex-row gap-4">
-                        <button onclick="showToast('Votre catalogue professionnel est en route !')" class="group bg-coco-400 hover:bg-coco-500 text-coco-100 font-medium px-9 py-4 rounded-full transition-all duration-500 hover:shadow-xl flex items-center justify-center gap-3 tracking-[0.06em]" style="font-size:0.8rem;">
-                            Demander notre catalogue pro
-                            <i data-lucide="arrow-right" class="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1"></i>
-                        </button>
-                        <a href="#bougies" class="group border-2 text-coco-500 font-medium px-9 py-4 rounded-full transition-all duration-500 hover:bg-coco-100/40 flex items-center justify-center gap-3 tracking-[0.06em]" style="font-size:0.8rem; border-color: rgba(74,44,33,0.1);">
-                            Voir la collection
-                            <i data-lucide="eye" class="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity duration-500"></i>
-                        </a>
-                    </div>
+    <section class="bg-hero-luxe relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14">
+
+            <!-- Text block : centré, aéré -->
+            <div class="pt-32 sm:pt-40 lg:pt-48 pb-6 sm:pb-8 max-w-3xl mx-auto text-center">
+
+                <!-- Label avec lignes -->
+                <div class="reveal flex items-center justify-center gap-5 mb-10">
+                    <div class="hero-label-line"></div>
+                    <span class="badge-luxe text-coco-400 whitespace-nowrap">Bougies artisanales — Grand-Bassam, Côte d'Ivoire</span>
+                    <div class="hero-label-line"></div>
                 </div>
-                <div class="order-1 lg:order-2 reveal reveal-delay-2">
-                    <div class="relative float-gentle">
-                        <div class="img-warm-shadow overflow-hidden">
-                            <img src="https://picsum.photos/seed/kukue-hero-coco/800/1000.jpg" alt="Bougies KÙKÙÉ accrochées dans un cocotier" class="w-full h-[380px] sm:h-[500px] lg:h-[580px] object-cover">
-                        </div>
-                    </div>
+
+                <!-- Titre -->
+                <h1 class="reveal reveal-delay-1 font-serif text-[2.2rem] sm:text-5xl lg:text-[3.4rem] xl:text-[4rem] font-light text-coco-500 leading-[1.08] tracking-[-0.015em] mb-7">
+                    Des bougies coulées à la main, dans la coque même de la coco.
+                </h1>
+
+                <!-- Sous-titre -->
+                <p class="reveal reveal-delay-2 text-[0.95rem] sm:text-[1.05rem] font-light text-coco-400 leading-[1.8] max-w-lg mx-auto mb-12 tracking-[0.005em]">
+                    Bougies de soja parfumées, coulées dans des coques de coco recyclées. Un objet d'art vivant qui transforme l'ambiance de votre établissement.
+                </p>
+
+                <!-- CTAs -->
+                <div class="reveal reveal-delay-3 flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="showToast('Votre catalogue professionnel est en route !')" class="group bg-coco-400 hover:bg-coco-500 text-coco-100 font-medium px-9 py-4 rounded-full transition-all duration-500 hover:shadow-xl flex items-center justify-center gap-3 tracking-[0.06em]" style="font-size:0.8rem;">
+                        Demander notre catalogue pro
+                        <i data-lucide="arrow-right" class="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1"></i>
+                    </button>
+                    <a href="#bougies" class="group border-2 text-coco-500 font-medium px-9 py-4 rounded-full transition-all duration-500 hover:bg-coco-100/40 flex items-center justify-center gap-3 tracking-[0.06em]" style="font-size:0.8rem; border-color: rgba(74,44,33,0.1);">
+                        Voir la collection
+                        <i data-lucide="arrow-down" class="w-4 h-4 opacity-40 group-hover:opacity-100 group-hover:translate-y-0.5 transition-all duration-500"></i>
+                    </a>
                 </div>
             </div>
+
+            <!-- Image : plein cadre, déborde vers le bas -->
+            <div class="hero-image-wrap reveal reveal-delay-3 max-w-5xl mx-auto">
+                <div class="img-warm-shadow overflow-hidden">
+                    <img src="IMG_0268.jpg"
+                         alt="Bougies KÙKÙÉ accrochées dans un cocotier"
+                         class="w-full h-[300px] sm:h-[420px] lg:h-[520px] xl:h-[580px] object-cover">
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -502,7 +511,7 @@
                         <div class="flex-1">
                             <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-5" style="background: rgba(161,140,123,0.08);"><i data-lucide="heart" class="w-5 h-5 text-coco-400"></i></div>
                             <h3 class="font-serif text-lg font-medium text-coco-500 mb-2 tracking-[-0.01em]">Sourcing responsable, impact local à Grand-Bassam</h3>
-                            <p class="text-sm font-light text-coco-400 leading-[1.75]">Chaque commande soutient directement les artisans et collecteurs de la région. Un partenenaire qui a du sens.</p>
+                            <p class="text-sm font-light text-coco-400 leading-[1.75]">Chaque commande soutient directement les artisans et collecteurs de la région. Un partenariat qui a du sens.</p>
                         </div>
                         <div class="flex-1">
                             <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-5" style="background: rgba(161,140,123,0.08);"><i data-lucide="truck" class="w-5 h-5 text-coco-400"></i></div>
@@ -552,7 +561,7 @@
                 <div class="reveal reveal-delay-2">
                     <div class="relative">
                         <div class="img-warm-shadow overflow-hidden">
-                            <img src="https://picsum.photos/seed/kukue-artisan-bassine/700/900.jpg" alt="Artisane KÙKÙÉ avec une bassine de fruits tropicaux" class="w-full h-[440px] sm:h-[560px] object-cover">
+                            <img src="IMG_0267.jpg" alt="Artisane KÙKÙÉ avec une bassine de fruits tropicaux" class="w-full h-[440px] sm:h-[560px] object-cover">
                         </div>
                         <div class="absolute -z-10 -bottom-6 -right-6 w-full h-full rounded-organic-lg" style="background: linear-gradient(135deg, rgba(234,216,202,0.35), rgba(201,185,170,0.2));"></div>
                     </div>
@@ -628,7 +637,7 @@
                 <div class="reveal order-2 lg:order-1">
                     <div class="relative">
                         <div class="img-warm-shadow overflow-hidden">
-                            <img src="https://picsum.photos/seed/kukue-marche-etal/800/600.jpg" alt="Étal KÙKÙÉ au marché de Grand-Bassam" class="w-full h-[340px] sm:h-[420px] object-cover">
+                            <img src="IMG_0266.jpg" alt="Étal KÙKÙÉ au marché de Grand-Bassam" class="w-full h-[340px] sm:h-[420px] object-cover">
                         </div>
                         <div class="absolute -z-10 -bottom-5 -left-5 w-full h-full rounded-organic-lg" style="background: linear-gradient(135deg, rgba(201,185,170,0.25), rgba(234,216,202,0.15));"></div>
                     </div>
@@ -759,7 +768,7 @@
                 <div class="reveal reveal-delay-1">
                     <div class="relative">
                         <div class="img-warm-shadow-lg overflow-hidden">
-                            <img src="https://picsum.photos/seed/kukue-coffret-mer/700/500.jpg" alt="Coffret KÙKÙÉ face à la mer" class="w-full h-[300px] sm:h-[380px] object-cover">
+                            <img src="IMG_0269.jpg" alt="Coffret KÙKÙÉ face à la mer" class="w-full h-[300px] sm:h-[380px] object-cover">
                         </div>
                         <div class="absolute -z-10 -bottom-4 -left-4 w-full h-full rounded-organic-xl" style="background: rgba(161,140,123,0.05);"></div>
                     </div>
@@ -769,15 +778,12 @@
     </section>
 
     <!-- ============================================ -->
-    <!-- 11. FOOTER — LUXE -->
+    <!-- 11. FOOTER -->
     <!-- ============================================ -->
     <footer id="contact" class="bg-footer relative pt-20 pb-10 overflow-hidden">
-        <!-- Ligne dorée très fine en haut du footer -->
         <div class="absolute top-0 left-[8%] right-[8%] h-px" style="background: linear-gradient(90deg, transparent, rgba(161,140,123,0.15) 30%, rgba(161,140,123,0.25) 50%, rgba(161,140,123,0.15) 70%, transparent);"></div>
 
         <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 relative z-10">
-
-            <!-- Top section : logo + réseaux + tagline -->
             <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 pb-14 mb-14" style="border-bottom: 1px solid rgba(161,140,123,0.08);">
                 <div>
                     <a href="#" class="font-serif text-[2rem] font-bold text-coco-100 tracking-[0.1em] block mb-4">KÙKÙÉ</a>
@@ -786,24 +792,15 @@
                     </p>
                 </div>
                 <div class="flex items-center gap-4">
-                    <!-- Instagram -->
                     <a href="#" class="social-icon" aria-label="Instagram KÙKÙÉ">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-                        </svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                     </a>
-                    <!-- WhatsApp -->
                     <a href="#" class="social-icon" aria-label="WhatsApp KÙKÙÉ">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                        </svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                     </a>
                 </div>
             </div>
 
-            <!-- Colonnes -->
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 pb-14" style="border-bottom: 1px solid rgba(161,140,123,0.06);">
                 <div>
                     <h4 class="badge-luxe text-coco-400/50 mb-6">Navigation</h4>
@@ -851,7 +848,6 @@
                 </div>
             </div>
 
-            <!-- Bottom bar -->
             <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8">
                 <p class="text-[0.68rem] font-light text-coco-400/25 tracking-widest uppercase">© 2025 KÙKÙÉ — Tous droits réservés</p>
                 <p class="text-[0.68rem] font-light text-coco-400/20 tracking-widest uppercase">Grand-Bassam, Côte d'Ivoire</p>
@@ -925,7 +921,7 @@
         function handleNewsletter(e) {
             e.preventDefault();
             const email = e.target.querySelector('input[type="email"]').value;
-            showToast(`Merci ! Le catalogue pro sera envoyé à ${email}`);
+            showToast('Merci ! Le catalogue pro sera envoyé à ' + email);
             e.target.reset();
         }
 
