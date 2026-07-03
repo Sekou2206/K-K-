@@ -64,11 +64,12 @@
             background-size: 256px 256px, 3px 3px, 3px 3px, 100% 100%, 100% 100%, 100% 100%;
         }
 
-        .bg-hero-luxe {
+        .bg-hero {
             background:
-                radial-gradient(ellipse 60% 40% at 50% 0%, rgba(242,230,220,0.4) 0%, transparent 70%),
-                radial-gradient(ellipse 30% 30% at 80% 20%, rgba(161,140,123,0.03) 0%, transparent 60%),
-                #F2E6DC;
+                radial-gradient(ellipse 90% 70% at 80% 15%, rgba(242,230,220,0.7) 0%, transparent 50%),
+                radial-gradient(ellipse 50% 50% at 70% 30%, rgba(161,140,123,0.04) 0%, transparent 50%),
+                radial-gradient(ellipse 80% 40% at 50% 100%, rgba(234,216,202,0.25) 0%, transparent 60%),
+                repeating-radial-gradient(ellipse 120% 30% at 50% 100%, transparent 0px, transparent 18px, rgba(74,44,33,0.01) 18px, rgba(74,44,33,0.01) 20px);
         }
 
         .bg-trust {
@@ -246,21 +247,6 @@
                 radial-gradient(circle at 10% 90%, rgba(242,230,220,0.3) 0%, transparent 50%);
         }
 
-        /* Hero luxe — image débordante */
-        .hero-image-wrap {
-            position: relative;
-            margin-top: -4rem;
-        }
-        .hero-image-wrap::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 2rem;
-            background: linear-gradient(180deg, transparent 50%, rgba(74,44,33,0.06) 100%);
-            z-index: 1;
-            pointer-events: none;
-        }
-
         .reveal {
             opacity: 0;
             transform: translateY(35px);
@@ -305,6 +291,12 @@
         ::-webkit-scrollbar-thumb { background: #C9B9AA; border-radius: 999px; }
         ::-webkit-scrollbar-thumb:hover { background: #A18C7B; }
 
+        @keyframes gentle-float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .float-gentle { animation: gentle-float 7s ease-in-out infinite; }
+
         .link-underline { position: relative; display: inline-block; }
         .link-underline::after {
             content: '';
@@ -340,19 +332,52 @@
             font-weight: 600;
         }
 
-        /* Hero label separator lines */
-        .hero-label-line {
-            width: 40px;
-            height: 1px;
-            background: rgba(74,44,33,0.15);
+        /* ---- HERO LUXE ---- */
+        .hero-line {
+            display: block;
+            overflow: hidden;
+        }
+        .hero-line-inner {
+            display: block;
+            transform: translateY(110%);
+            transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal-active .hero-line-inner {
+            transform: translateY(0);
+        }
+        .hero-line-delay-1 .hero-line-inner { transition-delay: 0.15s; }
+        .hero-line-delay-2 .hero-line-inner { transition-delay: 0.3s; }
+
+        .hero-fade {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.5s, transform 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.5s;
+        }
+        .reveal-active .hero-fade {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .hero-fade-delay { transition-delay: 0.65s !important; }
+        .hero-fade-delay-2 { transition-delay: 0.8s !important; }
+
+        .hero-img-reveal {
+            clip-path: inset(100% 0 0 0);
+            transition: clip-path 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
+        }
+        .reveal-active .hero-img-reveal {
+            clip-path: inset(0 0 0 0);
         }
 
         @media (prefers-reduced-motion: reduce) {
             .reveal { transition: opacity 0.3s ease; transform: none; }
             .reveal.active { transform: none; }
+            .float-gentle { animation: none; }
             .card-hover:hover { transform: none; }
             .blob { animation: none !important; }
             .link-underline::after { transition: none; }
+            .hero-line-inner { transition: opacity 0.3s ease; transform: none; }
+            .hero-fade { transition: opacity 0.3s ease 0.2s; transform: none; }
+            .hero-img-reveal { transition: opacity 0.5s ease 0.1s; clip-path: none; }
         }
     </style>
 </head>
@@ -398,53 +423,64 @@
     </nav>
 
     <!-- ============================================ -->
-    <!-- 2. HERO — LUXE EDITORIAL -->
+    <!-- 2. HERO — LUXE HERMÈS / DIOR -->
     <!-- ============================================ -->
-    <section class="bg-hero-luxe relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14">
+    <section class="bg-hero relative min-h-screen flex items-center pt-20 pb-16 sm:pb-24 overflow-hidden">
+        <div class="blob-layer"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
 
-            <!-- Text block : centré, aéré -->
-            <div class="pt-32 sm:pt-40 lg:pt-48 pb-6 sm:pb-8 max-w-3xl mx-auto text-center">
+        <div class="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 w-full z-10">
+            <div class="grid lg:grid-cols-12 gap-8 lg:gap-6 items-center">
 
-                <!-- Label avec lignes -->
-                <div class="reveal flex items-center justify-center gap-5 mb-10">
-                    <div class="hero-label-line"></div>
-                    <span class="badge-luxe text-coco-400 whitespace-nowrap">Bougies artisanales — Grand-Bassam, Côte d'Ivoire</span>
-                    <div class="hero-label-line"></div>
+                <!-- Texte — col 5 avec décalage élégant -->
+                <div class="lg:col-span-5 lg:col-start-1 order-2 lg:order-1 hero-reveal">
+
+                    <!-- Ligne fine décorative -->
+                    <div class="hero-fade w-12 h-px mb-10" style="background: #A18C7B;"></div>
+
+                    <!-- Titre — chaque ligne révélée séparément -->
+                    <h1 class="font-serif text-[2.2rem] sm:text-[3.2rem] lg:text-[3.5rem] xl:text-[4rem] font-light text-coco-500 leading-[1.05] tracking-[-0.02em] mb-8">
+                        <span class="hero-line hero-line-delay-1"><span class="hero-line-inner">Des bougies coulées</span></span>
+                        <span class="hero-line hero-line-delay-1"><span class="hero-line-inner">à la main, dans la</span></span>
+                        <span class="hero-line hero-line-delay-2"><span class="hero-line-inner">coque même de la coco.</span></span>
+                    </h1>
+
+                    <!-- Sous-titre -->
+                    <p class="hero-fade text-[0.9rem] sm:text-[0.95rem] font-extralight text-coco-400 leading-[1.85] max-w-md mb-12 tracking-[0.01em]">
+                        Bougies de soja parfumées, coulées dans des coques de coco recyclées. Un objet d'art vivant qui transforme l'ambiance de votre établissement.
+                    </p>
+
+                    <!-- CTAs -->
+                    <div class="hero-fade hero-fade-delay flex flex-col sm:flex-row gap-4">
+                        <button onclick="showToast('Votre catalogue professionnel est en route !')" class="group bg-coco-400 hover:bg-coco-500 text-coco-100 font-medium px-8 py-3.5 rounded-full transition-all duration-500 hover:shadow-xl flex items-center justify-center gap-3 tracking-[0.08em]" style="font-size:0.75rem;">
+                            Demander notre catalogue pro
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-500 group-hover:translate-x-1"></i>
+                        </button>
+                        <a href="#bougies" class="group text-coco-400 hover:text-coco-500 font-medium px-8 py-3.5 rounded-full transition-all duration-500 flex items-center justify-center gap-3 tracking-[0.08em] border" style="font-size:0.75rem; border-color: rgba(74,44,33,0.12);">
+                            Voir la collection
+                        </a>
+                    </div>
+
+                    <!-- Origine — petite mention basse -->
+                    <div class="hero-fade hero-fade-delay-2 mt-16 flex items-center gap-3">
+                        <div class="w-1.5 h-1.5 rounded-full" style="background: #A18C7B;"></div>
+                        <span class="text-[0.65rem] font-medium text-coco-300 tracking-[0.2em] uppercase">Grand-Bassam, Côte d'Ivoire</span>
+                    </div>
                 </div>
 
-                <!-- Titre -->
-                <h1 class="reveal reveal-delay-1 font-serif text-[2.2rem] sm:text-5xl lg:text-[3.4rem] xl:text-[4rem] font-light text-coco-500 leading-[1.08] tracking-[-0.015em] mb-7">
-                    Des bougies coulées à la main, dans la coque même de la coco.
-                </h1>
-
-                <!-- Sous-titre -->
-                <p class="reveal reveal-delay-2 text-[0.95rem] sm:text-[1.05rem] font-light text-coco-400 leading-[1.8] max-w-lg mx-auto mb-12 tracking-[0.005em]">
-                    Bougies de soja parfumées, coulées dans des coques de coco recyclées. Un objet d'art vivant qui transforme l'ambiance de votre établissement.
-                </p>
-
-                <!-- CTAs -->
-                <div class="reveal reveal-delay-3 flex flex-col sm:flex-row gap-4 justify-center">
-                    <button onclick="showToast('Votre catalogue professionnel est en route !')" class="group bg-coco-400 hover:bg-coco-500 text-coco-100 font-medium px-9 py-4 rounded-full transition-all duration-500 hover:shadow-xl flex items-center justify-center gap-3 tracking-[0.06em]" style="font-size:0.8rem;">
-                        Demander notre catalogue pro
-                        <i data-lucide="arrow-right" class="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1"></i>
-                    </button>
-                    <a href="#bougies" class="group border-2 text-coco-500 font-medium px-9 py-4 rounded-full transition-all duration-500 hover:bg-coco-100/40 flex items-center justify-center gap-3 tracking-[0.06em]" style="font-size:0.8rem; border-color: rgba(74,44,33,0.1);">
-                        Voir la collection
-                        <i data-lucide="arrow-down" class="w-4 h-4 opacity-40 group-hover:opacity-100 group-hover:translate-y-0.5 transition-all duration-500"></i>
-                    </a>
+                <!-- Image — col 6 avec offset pour respiration -->
+                <div class="lg:col-span-6 lg:col-start-7 order-1 lg:order-2 hero-reveal">
+                    <div class="relative hero-img-reveal">
+                        <div class="overflow-hidden" style="border-radius: 1.25rem; box-shadow: 0 40px 80px -20px rgba(74,44,33,0.15), 0 12px 24px -8px rgba(74,44,33,0.06);">
+                            <img src="IMG_0268.jpg"
+                                 alt="Bougies KÙKÙÉ accrochées dans un cocotier"
+                                 class="w-full h-[340px] sm:h-[460px] lg:h-[580px] xl:h-[640px] object-cover">
+                        </div>
+                        <!-- Accent subtil coin inférieur droit -->
+                        <div class="absolute -bottom-3 -right-3 w-24 h-24 rounded-2xl -z-10" style="background: linear-gradient(135deg, rgba(161,140,123,0.12), rgba(161,140,123,0.04));"></div>
+                    </div>
                 </div>
+
             </div>
-
-            <!-- Image : plein cadre, déborde vers le bas -->
-            <div class="hero-image-wrap reveal reveal-delay-3 max-w-5xl mx-auto">
-                <div class="img-warm-shadow overflow-hidden">
-                    <img src="IMG_0268.jpg"
-                         alt="Bougies KÙKÙÉ accrochées dans un cocotier"
-                         class="w-full h-[300px] sm:h-[420px] lg:h-[520px] xl:h-[580px] object-cover">
-                </div>
-            </div>
-
         </div>
     </section>
 
@@ -487,8 +523,8 @@
                 </div>
                 <div class="reveal reveal-delay-1 card-hover card-dark-wood md:row-span-2 p-9 sm:p-11 flex flex-col justify-between text-coco-100">
                     <div>
-                        <div class="w-12 h-12 bg-white/8 rounded-2xl flex items-center justify-center mb-7"><i data-lucide="leaf" class="w-6 h-6 text-coco-300"></i></div>
-                        <h3 class="font-serif text-xl sm:text-2xl font-medium mb-4 tracking-[-0.01em]">100% artisanal, matières locales et durables</h3>
+                        <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background: rgba(255,255,255,0.08);"><i data-lucide="leaf" class="w-6 h-6 text-coco-300"></i></div>
+                        <h3 class="font-serif text-xl sm:text-2xl font-medium mb-4 mt-7 tracking-[-0.01em]">100% artisanal, matières locales et durables</h3>
                         <p class="text-sm font-light text-coco-200/70 leading-[1.75]">Cire de soja naturelle, mèches coton, coques de coco récupérées localement à Grand-Bassam. Zéro déchet, tout cycle.</p>
                     </div>
                     <div class="mt-8 flex items-center gap-3 text-coco-300">
@@ -782,14 +818,11 @@
     <!-- ============================================ -->
     <footer id="contact" class="bg-footer relative pt-20 pb-10 overflow-hidden">
         <div class="absolute top-0 left-[8%] right-[8%] h-px" style="background: linear-gradient(90deg, transparent, rgba(161,140,123,0.15) 30%, rgba(161,140,123,0.25) 50%, rgba(161,140,123,0.15) 70%, transparent);"></div>
-
         <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 relative z-10">
             <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 pb-14 mb-14" style="border-bottom: 1px solid rgba(161,140,123,0.08);">
                 <div>
                     <a href="#" class="font-serif text-[2rem] font-bold text-coco-100 tracking-[0.1em] block mb-4">KÙKÙÉ</a>
-                    <p class="text-[0.8rem] font-light text-coco-400/40 leading-relaxed max-w-xs tracking-wide">
-                        Bougies artisanales coulées à la main<br>dans des coques de coco — Grand-Bassam, Côte d'Ivoire
-                    </p>
+                    <p class="text-[0.8rem] font-light text-coco-400/40 leading-relaxed max-w-xs tracking-wide">Bougies artisanales coulées à la main dans des coques de coco — Grand-Bassam, Côte d'Ivoire</p>
                 </div>
                 <div class="flex items-center gap-4">
                     <a href="#" class="social-icon" aria-label="Instagram KÙKÙÉ">
@@ -800,7 +833,6 @@
                     </a>
                 </div>
             </div>
-
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 pb-14" style="border-bottom: 1px solid rgba(161,140,123,0.06);">
                 <div>
                     <h4 class="badge-luxe text-coco-400/50 mb-6">Navigation</h4>
@@ -847,7 +879,6 @@
                     </ul>
                 </div>
             </div>
-
             <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8">
                 <p class="text-[0.68rem] font-light text-coco-400/25 tracking-widest uppercase">© 2025 KÙKÙÉ — Tous droits réservés</p>
                 <p class="text-[0.68rem] font-light text-coco-400/20 tracking-widest uppercase">Grand-Bassam, Côte d'Ivoire</p>
@@ -861,43 +892,56 @@
     <script>
         lucide.createIcons();
 
+        // Navbar scroll
         const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
+        window.addEventListener('scroll', function() {
             navbar.classList.toggle('navbar-scrolled', window.scrollY > 60);
         }, { passive: true });
 
+        // Mobile menu
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
         let menuOpen = false;
 
-        menuToggle.addEventListener('click', () => {
+        menuToggle.addEventListener('click', function() {
             menuOpen = !menuOpen;
             mobileMenu.classList.toggle('open', menuOpen);
-            menuToggle.querySelector('[data-lucide]').setAttribute('data-lucide', menuOpen ? 'x' : 'menu');
+            var icon = menuToggle.querySelector('[data-lucide]');
+            icon.setAttribute('data-lucide', menuOpen ? 'x' : 'menu');
             lucide.createIcons();
         });
 
         function closeMobileMenu() {
             menuOpen = false;
             mobileMenu.classList.remove('open');
-            menuToggle.querySelector('[data-lucide]').setAttribute('data-lucide', 'menu');
+            var icon = menuToggle.querySelector('[data-lucide]');
+            icon.setAttribute('data-lucide', 'menu');
             lucide.createIcons();
         }
 
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('active');
+        // Reveal animations
+        var revealObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) entry.target.classList.add('active', 'reveal-active');
             });
         }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+        document.querySelectorAll('.reveal').forEach(function(el) { revealObserver.observe(el); });
 
-        document.querySelectorAll('.faq-toggle').forEach(toggle => {
-            toggle.addEventListener('click', () => {
-                const item = toggle.closest('.faq-item');
-                const answer = item.querySelector('.faq-answer');
-                const icon = item.querySelector('.faq-icon');
-                const isOpen = answer.classList.contains('open');
-                document.querySelectorAll('.faq-answer.open').forEach(a => {
+        // Hero reveal on load
+        window.addEventListener('load', function() {
+            document.querySelectorAll('.hero-reveal').forEach(function(el) {
+                el.classList.add('reveal-active');
+            });
+        });
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-toggle').forEach(function(toggle) {
+            toggle.addEventListener('click', function() {
+                var item = toggle.closest('.faq-item');
+                var answer = item.querySelector('.faq-answer');
+                var icon = item.querySelector('.faq-icon');
+                var isOpen = answer.classList.contains('open');
+                document.querySelectorAll('.faq-answer.open').forEach(function(a) {
                     a.classList.remove('open');
                     a.closest('.faq-item').querySelector('.faq-icon').classList.remove('rotated');
                     a.closest('.faq-item').querySelector('.faq-toggle').setAttribute('aria-expanded', 'false');
@@ -910,26 +954,31 @@
             });
         });
 
-        let toastTimeout;
+        // Toast
+        var toastTimeout;
         function showToast(message) {
             clearTimeout(toastTimeout);
             document.getElementById('toast-message').textContent = message;
             document.getElementById('toast').classList.add('show');
-            toastTimeout = setTimeout(() => document.getElementById('toast').classList.remove('show'), 4500);
+            toastTimeout = setTimeout(function() {
+                document.getElementById('toast').classList.remove('show');
+            }, 4500);
         }
 
+        // Newsletter
         function handleNewsletter(e) {
             e.preventDefault();
-            const email = e.target.querySelector('input[type="email"]').value;
+            var email = e.target.querySelector('input[type="email"]').value;
             showToast('Merci ! Le catalogue pro sera envoyé à ' + email);
             e.target.reset();
         }
 
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
             anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
+                var href = this.getAttribute('href');
                 if (href === '#') return;
-                const target = document.querySelector(href);
+                var target = document.querySelector(href);
                 if (target) {
                     e.preventDefault();
                     window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
