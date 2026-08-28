@@ -20,13 +20,15 @@
                     colors: {
                         'coco': {
                             50: '#F8F2EC', 100: '#F2E6DC', 200: '#EAD8CA', 300: '#C9B9AA',
-                            400: '#8DA36B', 500: '#174A3A', /* Vert Palmier Profond */
-                            600: '#123F35', /* Vert Bouteille Tropical */
-                            700: '#0E2B25', 800: '#211512', /* Cacao Noir */
+                            400: '#8DA36B',
+                            500: '#575D2C', /* Green Olive */
+                            600: '#424820', /* Deep Green Olive */
+                            700: '#2D3215',
+                            800: '#160D19', /* Deep Purple */
                             900: '#1A0F0A',
                         },
                         'sand': '#EAD8CA',
-                        'ivory': '#F4E7CD', /* Crème Coco */
+                        'ivory': '#F1E4CF', /* Ivoire / Crème */
                         'papaye': {
                             50: '#FDF1E8', 100: '#FAE0CC', 200: '#F4B990', 300: '#ED9A63',
                             400: '#E58548', 500: '#E96932', /* Orange Papaye */
@@ -38,19 +40,12 @@
                             400: '#3E50B4', 500: '#075A63', /* Bleu Pétrole */
                             600: '#123F35', 700: '#0E2B25',
                         },
-                        'bissap': {
-                            500: '#B52E3E', /* Rouge Bissap */
-                        },
-                        'solaire': {
-                            500: '#E8B83D', /* Jaune Maïs Solaire */
-                            600: '#D9A52E', /* Safran */
-                        },
-                        'hibiscus': {
-                            500: '#E88983', /* Rose Hibiscus */
-                        },
-                        'espresso': {
-                            500: '#211512', /* Espresso */
-                        }
+                        'bissap': { 500: '#B52E3E' /* Rouge Bissap */ },
+                        'solaire': { 500: '#E8B83D', 600: '#D9A52E' /* Safran */ },
+                        'hibiscus': { 500: '#E88983' /* Rose Hibiscus */ },
+                        'rose-tropical': { 500: '#D77C7D' /* Rose Poussière Tropical */ },
+                        'espresso': { 500: '#211512' /* Espresso / Cacao Noir */ },
+                        'lime': { 300: '#CFE06B', 500: '#9AB11E' /* Lime Green */ }
                     },
                     fontFamily: {
                         'serif': ['"Cormorant Garamond"', 'Georgia', 'serif'],
@@ -72,11 +67,11 @@
         .font-sans { font-family: 'Inter', sans-serif; }
 
         body {
-            background-color: #F4E7CD;
+            background-color: #F1E4CF;
             background-image:
                 url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E"),
-                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(23,74,58,0.006) 2px, rgba(23,74,58,0.006) 3px),
-                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(23,74,58,0.006) 2px, rgba(23,74,58,0.006) 3px);
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(87,93,44,0.006) 2px, rgba(87,93,44,0.006) 3px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(87,93,44,0.006) 2px, rgba(87,93,44,0.006) 3px);
             background-attachment: fixed;
             background-size: 256px 256px, 3px 3px, 3px 3px;
         }
@@ -84,13 +79,13 @@
         .bg-postcard { background-color: #075A63; }
         .bg-film { background-color: #E8B83D; }
         .bg-coast { background-color: #D9A52E; }
-        .bg-people { background-color: #F4E7CD; }
-        .bg-material { background-color: #123F35; }
-        .bg-scents { background-color: #F4E7CD; }
-        .bg-objects { background-color: #E8EAF6; }
-        .bg-spaces { background-color: #F4E7CD; }
+        .bg-people { background-color: #F1E4CF; }
+        .bg-material { background-color: #424820; }
+        .bg-scents { background-color: #F1E4CF; }
+        .bg-objects { background-color: #F1E4CF; }
+        .bg-spaces { background-color: #F1E4CF; }
         .bg-discovery { background-color: #B52E3E; }
-        .bg-contact { background-color: #211512; }
+        .bg-contact { background-color: #160D19; }
         .bg-footer { background-color: #211512; }
 
         .blob-layer { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
@@ -110,7 +105,7 @@
             0%, 100% { transform: translate(0, 0) scale(1); }
             50% { transform: translate(20px, 20px) scale(1.04); }
         }
-        .blob-1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(244,231,205,0.4) 0%, transparent 70%); top: -10%; right: -5%; animation: blob-drift-1 22s ease-in-out infinite; }
+        .blob-1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(241,228,207,0.6) 0%, transparent 70%); top: -10%; right: -5%; animation: blob-drift-1 22s ease-in-out infinite; }
         .blob-2 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(233,105,50,0.15) 0%, transparent 70%); bottom: -5%; left: -5%; animation: blob-drift-2 28s ease-in-out infinite; }
         .blob-3 { width: 350px; height: 350px; background: radial-gradient(circle, rgba(7,90,99,0.1) 0%, transparent 70%); top: 40%; left: 30%; animation: blob-drift-3 32s ease-in-out infinite; }
 
@@ -122,13 +117,13 @@
             left: 10%;
             right: 10%;
             height: 1px;
-            background: linear-gradient(90deg, transparent 0%, rgba(23,74,58,0.1) 20%, rgba(161,140,123,0.2) 50%, rgba(23,74,58,0.1) 80%, transparent 100%);
+            background: linear-gradient(90deg, transparent 0%, rgba(87,93,44,0.1) 20%, rgba(161,140,123,0.2) 50%, rgba(87,93,44,0.1) 80%, transparent 100%);
         }
 
         .card-matter {
             background: url("data:image/svg+xml,%3Csvg viewBox='0 0 128 128' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.015'/%3E%3C/svg%3E"), rgba(255,255,255,0.6);
             backdrop-filter: blur(16px);
-            border: 1px solid rgba(23,74,58,0.1);
+            border: 1px solid rgba(87,93,44,0.1);
             border-radius: 1.5rem;
         }
         
@@ -136,25 +131,27 @@
             background: linear-gradient(160deg, #075A63 0%, #123F35 100%);
             border-radius: 1.5rem;
         }
-        
         .card-papaye {
             background: linear-gradient(160deg, #E96932 0%, #D95C35 100%);
             border-radius: 1.5rem;
         }
-        
-        .card-cocoa {
-            background: linear-gradient(160deg, #211512 0%, #1A0F0A 100%);
+        .card-olive {
+            background: linear-gradient(160deg, #575D2C 0%, #424820 100%);
+            border-radius: 1.5rem;
+        }
+        .card-deep-purple {
+            background: linear-gradient(160deg, #160D19 0%, #211512 100%);
             border-radius: 1.5rem;
         }
 
         .img-warm-shadow {
             border-radius: 2rem;
-            box-shadow: 0 30px 60px -15px rgba(23,74,58,0.15), 0 8px 20px -8px rgba(23,74,58,0.08);
+            box-shadow: 0 30px 60px -15px rgba(87,93,44,0.15), 0 8px 20px -8px rgba(87,93,44,0.08);
         }
         .bento-pattern {
             background-image:
                 radial-gradient(circle at 90% 10%, rgba(233,105,50,0.05) 0%, transparent 50%),
-                radial-gradient(circle at 10% 90%, rgba(244,231,205,0.1) 0%, transparent 50%);
+                radial-gradient(circle at 10% 90%, rgba(241,228,207,0.1) 0%, transparent 50%);
         }
 
         .reveal {
@@ -171,31 +168,31 @@
         .card-hover {
             transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
         }
-        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 30px 60px -15px rgba(23,74,58,0.15); }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 30px 60px -15px rgba(87,93,44,0.15); }
 
         .toast { transform: translateY(20px); opacity: 0; transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
         .toast.show { transform: translateY(0); opacity: 1; }
 
         .navbar-scrolled {
-            background: rgba(244,231,205,0.9) !important;
+            background: rgba(241,228,207,0.9) !important;
             backdrop-filter: blur(24px) saturate(1.3) !important;
-            box-shadow: 0 1px 0 rgba(23,74,58,0.1) !important;
+            box-shadow: 0 1px 0 rgba(87,93,44,0.1) !important;
         }
         #navbar:not(.navbar-scrolled) a:not(.bg-papaye-500), 
         #navbar:not(.navbar-scrolled) button#menu-toggle {
-            color: #F4E7CD !important;
+            color: #F1E4CF !important;
         }
         #navbar:not(.navbar-scrolled) a:not(.bg-papaye-500):hover {
             color: #E8B83D !important;
         }
         #navbar:not(.navbar-scrolled) a.bg-papaye-500 {
-            background-color: rgba(244, 231, 205, 0.15) !important;
+            background-color: rgba(241, 228, 207, 0.15) !important;
             backdrop-filter: blur(12px) !important;
-            border: 1px solid rgba(244, 231, 205, 0.25) !important;
-            color: #F4E7CD !important;
+            border: 1px solid rgba(241, 228, 207, 0.25) !important;
+            color: #F1E4CF !important;
         }
         #navbar:not(.navbar-scrolled) a.bg-papaye-500:hover {
-            background-color: rgba(244, 231, 205, 0.25) !important;
+            background-color: rgba(241, 228, 207, 0.25) !important;
         }
 
         .mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
@@ -203,7 +200,7 @@
 
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #211512; }
-        ::-webkit-scrollbar-thumb { background: #174A3A; border-radius: 999px; }
+        ::-webkit-scrollbar-thumb { background: #575D2C; border-radius: 999px; }
         ::-webkit-scrollbar-thumb:hover { background: #075A63; }
 
         @keyframes gentle-float {
@@ -228,15 +225,15 @@
         .social-icon {
             width: 44px; height: 44px;
             display: flex; align-items: center; justify-content: center;
-            border: 1px solid rgba(244,231,205,0.2);
+            border: 1px solid rgba(241,228,207,0.2);
             border-radius: 50%;
             transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-            color: #F4E7CD;
+            color: #F1E4CF;
         }
         .social-icon:hover {
             background: rgba(233,105,50,0.2);
             border-color: rgba(233,105,50,0.5);
-            color: #F4E7CD;
+            color: #F1E4CF;
             transform: translateY(-2px);
         }
 
@@ -269,7 +266,7 @@
             position: relative;
             overflow: hidden;
             border-radius: 2rem;
-            box-shadow: 0 30px 60px -15px rgba(23,74,58,0.15), 0 8px 20px -8px rgba(23,74,58,0.08);
+            box-shadow: 0 30px 60px -15px rgba(87,93,44,0.15), 0 8px 20px -8px rgba(87,93,44,0.08);
         }
         .harvest-card .harvest-img {
             transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
@@ -285,7 +282,7 @@
             overflow: hidden;
             border-radius: 1.25rem;
             position: relative;
-            box-shadow: 0 20px 40px -10px rgba(23,74,58,0.15);
+            box-shadow: 0 20px 40px -10px rgba(87,93,44,0.15);
         }
         .galerie-tile img {
             transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
@@ -312,7 +309,7 @@
 <body class="bg-ivory text-coco-500 font-sans antialiased overflow-x-hidden">
 
     <!-- TOAST -->
-    <div id="toast" class="toast fixed bottom-6 right-6 z-[100] px-6 py-4 rounded-organic flex items-center gap-3 max-w-sm" style="background: linear-gradient(135deg, #174A3A, #123F35); border: 1px solid rgba(244,231,205,0.2); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.4);">
+    <div id="toast" class="toast fixed bottom-6 right-6 z-[100] px-6 py-4 rounded-organic flex items-center gap-3 max-w-sm" style="background: linear-gradient(135deg, #575D2C, #424820); border: 1px solid rgba(241,228,207,0.2); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.4);">
         <i data-lucide="check-circle" class="w-5 h-5 text-papaye-500 flex-shrink-0"></i>
         <span id="toast-message" class="text-sm font-light text-ivory">Message</span>
     </div>
@@ -337,7 +334,7 @@
                 </button>
             </div>
             <div id="mobile-menu" class="mobile-menu md:hidden">
-                <div class="pb-6 pt-4 flex flex-col gap-4" style="border-top: 1px solid rgba(244,231,205,0.1);">
+                <div class="pb-6 pt-4 flex flex-col gap-4" style="border-top: 1px solid rgba(241,228,207,0.1);">
                     <a href="#coast" class="text-sm font-medium hover:text-papaye-500 py-2 tracking-wider uppercase" style="font-size:0.7rem;" onclick="closeMobileMenu()">The Coast</a>
                     <a href="#material" class="text-sm font-medium hover:text-papaye-500 py-2 tracking-wider uppercase" style="font-size:0.7rem;" onclick="closeMobileMenu()">The Craft</a>
                     <a href="#scents" class="text-sm font-medium hover:text-papaye-500 py-2 tracking-wider uppercase" style="font-size:0.7rem;" onclick="closeMobileMenu()">The Scents</a>
@@ -371,8 +368,8 @@
                 </p>
                 
                 <div class="hero-fade hero-fade-delay flex justify-center">
-                    <a href="#coast" class="group bg-coco-500 hover:bg-coco-600 text-ivory font-medium px-8 py-3.5 rounded-full transition-all duration-500 hover:shadow-xl flex items-center justify-center gap-3 tracking-[0.08em]" style="font-size:0.75rem;">
-                        Welcome
+                    <a href="#contact" class="group bg-coco-500 hover:bg-coco-600 text-ivory font-medium px-8 py-3.5 rounded-full transition-all duration-500 hover:shadow-xl flex items-center justify-center gap-3 tracking-[0.08em]" style="font-size:0.75rem;">
+                        Demander la collection
                         <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform duration-500 group-hover:translate-x-1"></i>
                     </a>
                 </div>
@@ -508,13 +505,13 @@
     <section id="material" class="bg-material relative py-24 sm:py-32 section-divider-top overflow-hidden text-ivory">
         <div class="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 z-10">
             <div class="text-center max-w-2xl mx-auto mb-20">
-                <span class="reveal inline-block badge-luxe text-solaire-500 mb-5">03 / The Material</span>
+                <span class="reveal inline-block badge-luxe text-lime-300 mb-5">03 / The Material</span>
                 <h2 class="reveal reveal-delay-1 font-serif text-4xl sm:text-5xl lg:text-[3.5rem] font-light leading-[1.1] tracking-[-0.02em] mb-6">COCONUT SHELL</h2>
                 <p class="reveal reveal-delay-2 text-[0.95rem] font-light text-ivory/70 leading-[1.75]">Cabosses recyclées. Finition main. Fabriqué en Côte d'Ivoire.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-                <div class="reveal card-hover card-cocoa md:col-span-2 p-9 sm:p-11 bento-pattern border border-ivory/10">
+                <div class="reveal card-hover card-deep-purple md:col-span-2 p-9 sm:p-11 bento-pattern border border-ivory/10">
                     <div class="flex items-start gap-5">
                         <div class="flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center bg-papaye-500/20"><i data-lucide="handcraft" class="w-6 h-6 text-papaye-500"></i></div>
                         <div>
@@ -523,31 +520,31 @@
                         </div>
                     </div>
                 </div>
-                <div class="reveal reveal-delay-1 card-hover bg-coco-500 p-9 sm:p-11 flex flex-col justify-between border border-ivory/10">
+                <div class="reveal reveal-delay-1 card-hover card-olive p-9 sm:p-11 flex flex-col justify-between border border-ivory/10">
                     <div>
-                        <div class="w-12 h-12 rounded-2xl flex items-center justify-center bg-petrole-500/30"><i data-lucide="leaf" class="w-6 h-6 text-solaire-500"></i></div>
+                        <div class="w-12 h-12 rounded-2xl flex items-center justify-center bg-petrole-500/30"><i data-lucide="leaf" class="w-6 h-6 text-lime-300"></i></div>
                         <h3 class="font-serif text-xl sm:text-2xl font-medium text-ivory mb-4 mt-7 tracking-[-0.01em]">Art de vivre coastal</h3>
                         <p class="text-sm font-light text-ivory/60 leading-[1.75]">KÙKÙÉ c'est l'essence des plages ivoiriennes, la chaleur solaire, et les nuits chaudes. Un lifestyle premium ancré dans le réel du marché de Grand-Bassam.</p>
                     </div>
-                    <div class="mt-8 flex items-center gap-3 text-solaire-500">
+                    <div class="mt-8 flex items-center gap-3 text-lime-300">
                         <i data-lucide="recycle" class="w-4 h-4"></i>
                         <span class="badge-luxe">Éco-responsable</span>
                     </div>
                 </div>
-                <div class="reveal reveal-delay-2 card-hover card-cocoa p-8 bento-pattern border border-ivory/10">
+                <div class="reveal reveal-delay-2 card-hover card-deep-purple p-8 bento-pattern border border-ivory/10">
                     <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-5 bg-petrole-500/20"><i data-lucide="palette" class="w-5 h-5 text-petrole-100"></i></div>
                     <h3 class="font-serif text-lg font-medium text-ivory mb-2 tracking-[-0.01em]">Design contemporain</h3>
                     <p class="text-sm font-light text-ivory/60 leading-[1.75]">Une esthétique éditoriale premium, mélange de vert palmier, crème et touches de bleu pétrole.</p>
                 </div>
-                <div class="reveal reveal-delay-3 card-hover card-cocoa p-8 bento-pattern border border-ivory/10">
+                <div class="reveal reveal-delay-3 card-hover card-deep-purple p-8 bento-pattern border border-ivory/10">
                     <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-5 bg-petrole-500/20"><i data-lucide="map-pin" class="w-5 h-5 text-petrole-100"></i></div>
                     <h3 class="font-serif text-lg font-medium text-ivory mb-2 tracking-[-0.01em]">Ancrage local</h3>
                     <p class="text-sm font-light text-ivory/60 leading-[1.75]">Production 100% locale à Grand-Bassam, soutenant les artisans et collecteurs de la côte.</p>
                 </div>
-                <div class="reveal reveal-delay-4 card-hover bg-coco-500 p-8 bento-pattern border border-ivory/10">
+                <div class="reveal reveal-delay-4 card-hover card-olive p-8 bento-pattern border border-ivory/10">
                     <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-5 bg-papaye-500/20"><i data-lucide="flame" class="w-5 h-5 text-papaye-500"></i></div>
                     <h3 class="font-serif text-lg font-medium text-ivory mb-2 tracking-[-0.01em]">Cire naturelle</h3>
-                    <p class="text-sm font-light text-ivory/60 leading-[1.75]">Une combustion propre et longue durée, grâce à des mélanges de cires végétales douces.</p>
+                    <p class="text-sm font-light text-ivory/60 leading-[1.75]">Une combustion propre et longue durée, grâce à des mélanges de cires végétales doux.</p>
                 </div>
             </div>
         </div>
@@ -687,32 +684,32 @@
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
                 <div class="reveal galerie-tile h-72 lg:h-96 lg:row-span-2">
                     <img src="IMG_0269.jpg" alt="Object 1">
-                    <div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-cocoa/80 to-transparent">
+                    <div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-espresso-500/80 to-transparent">
                         <p class="text-[0.65rem] tracking-[0.18em] text-ivory/60 mb-1 uppercase">Packaging</p>
                         <p class="font-serif text-ivory text-lg">Coffret Signature</p>
                     </div>
                 </div>
                 <div class="reveal reveal-delay-1 galerie-tile h-56">
                     <img src="IMG_0267.jpg" alt="Object 2">
-                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-cocoa/80 to-transparent">
+                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-espresso-500/80 to-transparent">
                         <p class="font-serif text-ivory text-base">Bougie Coco</p>
                     </div>
                 </div>
                 <div class="reveal reveal-delay-2 galerie-tile h-56">
                     <img src="IMG_0266.jpg" alt="Object 3">
-                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-cocoa/80 to-transparent">
+                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-espresso-500/80 to-transparent">
                         <p class="font-serif text-ivory text-base">Mèche triple</p>
                     </div>
                 </div>
                 <div class="reveal reveal-delay-3 galerie-tile h-56">
                     <img src="IMG_0268.jpg" alt="Object 4">
-                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-cocoa/80 to-transparent">
+                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-espresso-500/80 to-transparent">
                         <p class="font-serif text-ivory text-base">Édition Limitée</p>
                     </div>
                 </div>
                 <div class="reveal reveal-delay-4 galerie-tile h-56">
                     <img src="IMG_0269.jpg" alt="Object 5">
-                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-cocoa/80 to-transparent">
+                    <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-espresso-500/80 to-transparent">
                         <p class="font-serif text-ivory text-base">Cabosse brute</p>
                     </div>
                 </div>
@@ -738,52 +735,28 @@
             </div>
 
             <!-- 4 Target Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-                <div class="reveal card-hover bg-ivory border border-papaye-200 p-7 rounded-organic-lg">
-                    <h3 class="badge-luxe text-papaye-500 mb-2 uppercase tracking-[0.2em]">Hotels</h3>
-                    <p class="text-sm font-light text-coco-500">Room scent / welcome gift</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+                <div class="reveal card-hover bg-ivory border border-papaye-200 p-7 rounded-organic-lg flex items-center justify-center text-center">
+                    <h3 class="badge-luxe text-papaye-500 uppercase tracking-[0.2em]">Hotels</h3>
                 </div>
-                <div class="reveal reveal-delay-1 card-hover bg-ivory border border-hibiscus-500/30 p-7 rounded-organic-lg">
-                    <h3 class="badge-luxe text-hibiscus-500 mb-2 uppercase tracking-[0.2em]">Restaurants</h3>
-                    <p class="text-sm font-light text-coco-500">Tables / signature scent</p>
+                <div class="reveal reveal-delay-1 card-hover bg-ivory border border-rose-tropical-500/30 p-7 rounded-organic-lg flex items-center justify-center text-center">
+                    <h3 class="badge-luxe text-rose-tropical-500 uppercase tracking-[0.2em]">Restaurants</h3>
                 </div>
-                <div class="reveal reveal-delay-2 card-hover bg-ivory border border-solaire-500/30 p-7 rounded-organic-lg">
-                    <h3 class="badge-luxe text-solaire-600 mb-2 uppercase tracking-[0.2em]">Architects</h3>
-                    <p class="text-sm font-light text-coco-500">Objects / interiors</p>
+                <div class="reveal reveal-delay-2 card-hover bg-ivory border border-solaire-600/30 p-7 rounded-organic-lg flex items-center justify-center text-center">
+                    <h3 class="badge-luxe text-solaire-600 uppercase tracking-[0.2em]">Architects</h3>
                 </div>
-                <div class="reveal reveal-delay-3 card-hover bg-ivory border border-coco-200 p-7 rounded-organic-lg">
-                    <h3 class="badge-luxe text-coco-500 mb-2 uppercase tracking-[0.2em]">Brands</h3>
-                    <p class="text-sm font-light text-coco-500">Gifting / collaborations</p>
+                <div class="reveal reveal-delay-3 card-hover bg-ivory border border-coco-200 p-7 rounded-organic-lg flex items-center justify-center text-center">
+                    <h3 class="badge-luxe text-coco-500 uppercase tracking-[0.2em]">Brands</h3>
                 </div>
             </div>
 
-            <!-- Pricing Cards -->
+            <!-- Offers -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="reveal card-hover card-petrole p-7 text-ivory border border-petrole-700 rounded-organic-lg">
-                    <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-4 bg-ivory/10"><i data-lucide="refresh-cw" class="w-5 h-5 text-solaire-500"></i></div>
-                    <h3 class="font-serif text-xl font-medium mb-2 tracking-[-0.01em]">Coastal Refill Program</h3>
-                    <p class="text-sm font-light text-ivory/70 leading-[1.75] mb-4">Ravitaillement régulier pour abonnement. Vos espaces toujours parfumés, sans gestion de stock.</p>
-                    <div class="mt-4 pt-4 border-t border-ivory/10">
-                        <p class="text-[0.65rem] tracking-[0.2em] uppercase text-ivory/50 mb-2">Tarifs B2B</p>
-                        <ul class="space-y-1.5 text-[0.8rem] font-light text-ivory/80">
-                            <li class="flex justify-between"><span>Signature</span> <span>16 500 - 17 000 F</span></li>
-                            <li class="flex justify-between"><span>Exclusive</span> <span>21 000 - 22 000 F</span></li>
-                        </ul>
-                        <p class="text-[0.65rem] tracking-[0.12em] uppercase text-papaye-400 mt-3">Min. 10-15 pièces / cycle</p>
-                    </div>
+                <div class="reveal card-hover card-petrole p-8 text-ivory border border-petrole-700 rounded-organic-lg flex items-center justify-center text-center">
+                    <h3 class="font-serif text-2xl font-medium tracking-[-0.01em]">Coastal Refill Program</h3>
                 </div>
-                <div class="reveal reveal-delay-1 card-hover card-papaye p-7 text-ivory border border-papaye-700 rounded-organic-lg">
-                    <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-4 bg-ivory/10"><i data-lucide="shopping-bag" class="w-5 h-5 text-ivory"></i></div>
-                    <h3 class="font-serif text-xl font-medium mb-2 tracking-[-0.01em]">Hospitality Selection</h3>
-                    <p class="text-sm font-light text-ivory/70 leading-[1.75] mb-4">Achat ponctuel pour événements, cadeaux clients ou aménagement temporaire.</p>
-                    <div class="mt-4 pt-4 border-t border-ivory/10">
-                        <p class="text-[0.65rem] tracking-[0.2em] uppercase text-ivory/50 mb-2">Tarifs B2B</p>
-                        <ul class="space-y-1.5 text-[0.8rem] font-light text-ivory/80">
-                            <li class="flex justify-between"><span>Signature</span> <span>dès 17 500 F</span></li>
-                            <li class="flex justify-between"><span>Exclusive</span> <span>dès 22 000 F</span></li>
-                        </ul>
-                        <p class="text-[0.65rem] tracking-[0.12em] uppercase text-ivory/80 mt-3">Min. 5 pièces</p>
-                    </div>
+                <div class="reveal reveal-delay-1 card-hover card-papaye p-8 text-ivory border border-papaye-700 rounded-organic-lg flex items-center justify-center text-center">
+                    <h3 class="font-serif text-2xl font-medium tracking-[-0.01em]">Hospitality Selection</h3>
                 </div>
             </div>
         </div>
@@ -797,7 +770,6 @@
         <div class="relative max-w-3xl mx-auto px-6 sm:px-10 lg:px-14 z-10 text-center">
             <span class="reveal inline-block badge-luxe text-solaire-500 mb-5 uppercase">The Discovery Box</span>
             <h2 class="reveal reveal-delay-1 font-serif text-4xl sm:text-5xl lg:text-[3.5rem] font-light leading-[1.1] tracking-[-0.02em] mb-8">Des objets parfumés venus de la côte ivoirienne.</h2>
-            <p class="reveal reveal-delay-2 text-[0.95rem] font-light text-ivory/70 leading-[1.85] mb-12 max-w-lg mx-auto">Puis seulement : collection, prix pro, minimums, délais, personnalisation.</p>
             <div class="reveal reveal-delay-3 flex justify-center">
                 <a href="#contact" onclick="showToast('Coffret découverte demandé !')" class="group bg-ivory text-bissap-500 font-semibold px-9 py-4 rounded-full transition-all duration-500 hover:shadow-xl flex items-center justify-center gap-3 tracking-[0.06em] uppercase text-[0.8rem]">
                     Demander un coffret découverte
@@ -882,8 +854,8 @@
                 <div>
                     <h4 class="badge-luxe text-ivory/50 mb-6 uppercase">Collections</h4>
                     <ul class="space-y-3.5">
-                        <li class="text-[0.8rem] font-light text-ivory/60 tracking-wide">Signature (20 000 F)</li>
-                        <li class="text-[0.8rem] font-light text-ivory/60 tracking-wide">Exclusive (25 000 F)</li>
+                        <li class="text-[0.8rem] font-light text-ivory/60 tracking-wide">Signature</li>
+                        <li class="text-[0.8rem] font-light text-ivory/60 tracking-wide">Exclusive</li>
                         <li class="text-[0.8rem] font-light text-ivory/60 tracking-wide">Coastal Refill Program</li>
                         <li class="text-[0.8rem] font-light text-ivory/60 tracking-wide">Hospitality Selection</li>
                     </ul>
